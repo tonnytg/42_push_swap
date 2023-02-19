@@ -12,50 +12,70 @@
 
 #include "push_swap.h"
 
-void ft_sa(int *a, int *b)
+void	set_clean(int *array, int total)
 {
-	int swp;
+	int	i;
 
-	swp = a[0];
-	a[0] = a[1];
-	a[1] = swp;
-}
-
-void ft_sb(int *a, int *b)
-{
-	int swp;
-
-	swp = b[0];
-	b[0] = b[1];
-	b[1] = swp;
-}
-
-void increment(int *x, int i, int v)
-{
-	if (v == 0)
-		return;
-	if (x[i] != 0)
-		increment(x, i, v);
-	else
+	i = 0;
+	while (i < total)
 	{
-		x[i] = v;
-		v = 0;
-		return;	
+		array[i] = -1;
+		i++;
 	}
 }
 
-void ft_pa(int *a, int *b)
+int	*new_array(int total)
 {
-	if (b[0] != 0)
-		
-	b[0] = a[0];
+	int	*array;
+
+	array = malloc(sizeof(int) * total);
+	set_clean(array, total);
+	return (array);
 }
 
-int main(int argc, char **argv)
+void	print_array(int *array, int total)
 {
-	int a[6];
-	int b[6];
+	int	i;
 
-	
+	i = 0;
+	while (i < total)
+	{
+		printf("[%d] - %d\n", i, array[i]);
+		i++;
+	}
+}
+
+void push(int *array, int total, int value)
+{
+	int i;
+
+	i = 0;
+	while (array[i] != -1)
+		i++;
+	array[i] = value;
+}
+
+int	main(int argc, char **argv)
+{
+	int	*array1;
+	int	*array2;
+	int	i;
+
+	i = 1;
+	while (argv[i])
+	{
+		printf("[%d] - %s\n", i, argv[i]);
+		i++;
+	}
+
+	printf("\nStart\n");
+	array1 = new_array(argc);
+	array2 = new_array(argc);
+	i = 1;
+	push(array2, argc, 1);
+	print_array(array1, argc);
+	print_array(array2, argc);
+	free(array1);
+	free(array2);
 	return (0);
 }

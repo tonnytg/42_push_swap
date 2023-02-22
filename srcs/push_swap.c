@@ -6,44 +6,39 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 02:55:02 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/20 13:38:40 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/22 02:34:44 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push(int *array, int total, int value)
+void	push_swap(int argc, char **argv)
 {
-	int i;
-
-	i = 0;
-	while (array[i] != -1)
-		i++;
-	array[i] = value;
-	printf("total: %d\n", total);
-}
-
-int	main(int argc, char **argv)
-{
-	int	*array1;
-	int	*array2;
+	int *array;
+	int total;
 	int	i;
 
+	total = argc - 1;
 	i = 1;
-	while (argv[i])
+	array = new_array(total);
+	while (i <= total)
 	{
-		printf("[%d] - %s\n", i, argv[i]);
+		push(array, argv[i][0]);
 		i++;
 	}
-	printf("\nStart\n");
-	array1 = new_array(argc);
-	array2 = new_array(argc);
+	ft_sort(total, array);
+
+	// Define um array de void
+	void **array1;
+	array1 = new_array_void(total);
+	// Imprime um array de void
+	print_array_void(total, array1);
 	i = 1;
-	push(array2, argc, 1);
-	push(array2, argc, 1);
-	print_array(array1, argc);
-	print_array(array2, argc);
-	free(array1);
-	free(array2);
-	return (0);
+	while (i <= total)
+	{
+		// define cada valor em um void
+		push_void(argc, array, argv[i][0]);
+		i++;
+	}	
+	ft_sort_void(total, array1);
 }

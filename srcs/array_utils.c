@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 08:29:36 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/22 02:13:57 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:52:11 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,10 @@ void	print_array_void(int total, void **array)
 	{
 		ft_printf("[%d] - %p\n", i, &array[i]);
 		if (array[i] != NULL)
-			printf("[%d] - %d\n", i, *(int *)array[i]);
+		{
+			printf("[%d] - VP:%p\n", i, array[i]);
+			printf("[%d] - VD:%d\n", i, *(int *)array[i]);
+		}
 		else
 			printf("[%d] - %p\n", i, array[i]);
 		i++;

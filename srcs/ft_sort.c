@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:07:26 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/22 02:37:02 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/22 16:00:52 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,20 @@ void	ft_sort_void(int total, void **array)
 	swap = new_array_void(total);
 	int i;
 	i = 0;
+	ft_printf("dividindo os valores\n");
 	while (i < total / 2)
 	{
-		sort_p_void(array, swap, 'b');
+		sort_p_void(total, array, swap, 'b');
 		i++;
 	}
 	ft_printf("\n---Array_void:\n");
 	print_array_void(total, array);
 	ft_printf("\n---Swap_void:\n");
 	print_array_void(total, swap);
+	sort_p_void(total, array, swap, 'a');	
+	ft_printf("\n---Array_void2:\n");
+	print_array_void(total, array);
+	ft_printf("\n---Swap_void2:\n");
+	print_array_void(total, swap);	
 	return;
 }

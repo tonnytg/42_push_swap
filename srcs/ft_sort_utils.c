@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:30:19 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/22 02:37:40 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/22 15:59:39 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,21 +106,21 @@ int	sort_p(int *array, int *swap, char c)
 	return (1);
 }
 
-int	sort_p_void(int **array, int **swap, char c)
+int	sort_p_void(int total, void **array, void **swap, char c)
 {
-	int cache;
+	int	value;
 
 	if (c == 'a')
 	{
-		cache = pop(swap);
-		push(array, cache);
+		value = pop_void(total, swap);
+		push_void(total, array, value);
 		ft_printf("p%c\n", c);
 		return (0);		
 	}
 	if (c == 'b')
 	{
-		cache = pop(array);
-		push(swap, cache);
+		value = pop_void(total, array);
+		push_void(total, swap, value);
 		ft_printf("p%c\n", c);
 		return (0);
 	}

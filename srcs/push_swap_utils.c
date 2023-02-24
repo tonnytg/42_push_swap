@@ -6,24 +6,27 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:20:42 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/22 15:39:03 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/23 02:14:12 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void push(int *array, int value)
+int	push_swap_needed(int total, void **array)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while (array[i] != -1)
+	while (i < total - 1)
 	{
+		if (array[i] != NULL && array[i + 1] != NULL)
+		{
+			if (*(int *)array[i] < *(int *)array[i + 1])
+				return (1);
+		}
 		i++;
 	}
-	// TODO: Se o valor for excedido talvez deva dar um erro
-	// talvez criar uma posição a mais e armazenar um nulo.
-	array[i] = value;
+	return (0);
 }
 
 void push_void(int total, void **array, int value)
@@ -38,32 +41,13 @@ void push_void(int total, void **array, int value)
 	}
 	if (i == total)
 	{
+		// TODO: Validar se no PDF pode imprimir erro em algum momento
 		ft_printf("Panic, array it is full");
 		exit (1);
 	}
-	// TODO: Se o valor for excedido talvez deva dar um erro
-	// talvez criar uma posição a mais e armazenar um nulo.
     value_ptr = malloc(sizeof(int));
     *value_ptr = value;
     array[i] = value_ptr;
-	ft_printf("Valor salvo: %d - Em: %p\n", value, array[i]);
-}
-
-int	pop(int *array)
-{
-	int i;
-	int top;
-
-	i = 0;
-	while (array[i] != -1)
-	{
-		i++;
-	}
-	// TODO: Necessário criar um nulo, para que o POP
-	// saiba quando pegar o TOP mesmo com a array cheia
-	top = array[i - 1];
-	array[i - 1] = -1;
-	return (top);
 }
 
 int	pop_void(int total, void **array)
@@ -76,24 +60,21 @@ int	pop_void(int total, void **array)
 	{
 		i++;
 	}
-	ft_printf("posição descoverta: %d\n", i);
-	ft_printf("vai usar: %d\n", i - 1);
-	// TODO: Necessário criar um nulo, para que o POP
-	// saiba quando pegar o TOP mesmo com a array cheia
 	top = *(int *)array[i - 1];
 	array[i - 1] = NULL;
 	return (top);
 }
 
-int	peek(int *array)
+int	peek_void(int total, void **array)
 {
-	int i;
+	int	i;
+	int	top;
 
 	i = 0;
-	// TODO: Criar um slot na Array para nulo
-	while (array[i] != -1)
+	while (array[i] != NULL && i < total)
 	{
 		i++;
 	}
-	return array[i - 1];
+	top = *(int *)array[i - 1];
+	return (top);
 }

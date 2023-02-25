@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:20:42 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/23 02:14:12 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/25 13:59:37 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void push_void(int total, void **array, int value)
 	}
     value_ptr = malloc(sizeof(int));
     *value_ptr = value;
-    array[i] = value_ptr;
+	array[i] = value_ptr;
 }
 
 int	pop_void(int total, void **array)

@@ -6,11 +6,13 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:13:52 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/21 20:25:57 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/25 03:12:53 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+// TODO: Realizar os ajustes para limpeza de memória
 
 int	main(int argc, char **argv)
 {

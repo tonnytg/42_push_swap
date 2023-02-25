@@ -6,26 +6,37 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:30:19 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/22 19:10:27 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/25 12:44:26 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// sort_s muda a posicão do array[0] com a posição[1]
+// sort_s muda a posicão do array[top] com a posição[top - 1]
 // somente entre eles
-int	sort_s(int *array, int *swap, char c)
+int	sort_s_void(int total, void **array, void **swap, char c)
 {
+	int	top_a;
+	int	top_s;
+	int *value_ptr;
+
 	if (c == 'a')
 	{
 		// TODO: Executa SA
+		top_a = last_p_array_void(total, array);
+		value_ptr = array[top_a];
+		array[top_a] = array[top_a - 1];
+		array[top_a - 1] = value_ptr;
 		ft_printf("s%c\n", c);
 		return (0);		
 	}
 	if (c == 'b')
 	{
 		// TODO: Executa SB
-		ft_printf("s%c\n", c);
+		top_s = last_p_array_void(total, swap);
+		value_ptr = swap[top_s];
+		swap[top_s] = swap[top_s - 1];
+		swap[top_s - 1] = value_ptr;
 		return (0);		
 	}
 	if (c == 's')
@@ -37,8 +48,8 @@ int	sort_s(int *array, int *swap, char c)
 	return (1);
 }
 
-// sort_r rotaciona toda a array em sentido ANTI-horario
-int	sort_r(int *array, int *swap, char c)
+// sort_r rotaciona toda a array em sentido ANTI-horario <- ra rb rr
+int	sort_r_void(int total, void **array, void **swap, char c)
 {
 	if (c == 'a')
 	{
@@ -61,13 +72,14 @@ int	sort_r(int *array, int *swap, char c)
 	return (1);
 }
 
-// sort_rr rotaciona toda a array em sentido HORARIO
-int	sort_rr(int *array, int *swap, char c)
+// sort_rr rotaciona toda a array em sentido HORARIO -> rra rra rrr
+int	sort_rr_void(int total, void **array, void **swap, char c)
 {
 	if (c == 'a')
 	{
 		// TODO: Executa RRA
 		ft_printf("rr%c\n", c);
+		
 		return (0);
 	}
 	if (c == 'b')
@@ -85,6 +97,7 @@ int	sort_rr(int *array, int *swap, char c)
 	return (1);
 }
 
+// sort_p transfere os dados de do top do array para outro array pa pb
 int	sort_p_void(int total, void **array, void **swap, char c)
 {
 	int	value;
@@ -93,15 +106,14 @@ int	sort_p_void(int total, void **array, void **swap, char c)
 	{
 		value = pop_void(total, swap);
 		push_void(total, array, value);
-		ft_printf("p%c\n", c);
-		return (0);		
 	}
 	if (c == 'b')
 	{
 		value = pop_void(total, array);
 		push_void(total, swap, value);
-		ft_printf("p%c\n", c);
-		return (0);
 	}
-	return (1);
+	else
+		return (1);
+	ft_printf("p%c\n", c);
+	return (0);
 }

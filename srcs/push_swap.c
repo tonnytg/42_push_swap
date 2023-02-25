@@ -1,80 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 13:20:42 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/25 02:08:43 by antthoma         ###   ########.fr       */
+/*   Created: 2023/02/18 02:55:02 by antthoma          #+#    #+#             */
+/*   Updated: 2023/02/25 13:59:28 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	push_swap_needed(int total, void **array)
+void	push_swap(int argc, char **argv)
 {
-	int	i;
+	void	**array;
+	int		i;
+	int		total;
 
-	i = 0;
-	while (i < total - 1)
+	total = argc - 1;
+	array = new_array_void(total);
+	i = total;
+	while (1 <= i)
 	{
-		if (array[i] != NULL && array[i + 1] != NULL)
-		{
-			if (*(int *)array[i] < *(int *)array[i + 1])
-				return (1);
-		}
-		i++;
+		push_void(total, array, ft_atoi(argv[i]));
+		i--;
 	}
-	return (0);
-}
-
-void push_void(int total, void **array, int value)
-{
-	int *value_ptr;
-	int i;
-
-	i = 0;
-	while (array[i] != NULL)
+	if (push_swap_needed(total, array))
 	{
-		i++;
+		ft_sort_void(total, array);	
 	}
-	if (i == total)
-	{
-		// TODO: Validar se no PDF pode imprimir erro em algum momento
-		ft_printf("Panic, array it is full");
-		exit (1);
-	}
-	value_ptr = malloc(sizeof(int));
-	*value_ptr = value;
-	array[i] = value_ptr;
-}
-
-int	pop_void(int total, void **array)
-{
-	int	i;
-	int	top;
-
-	i = 0;
-	while (array[i] != NULL && i < total)
-	{
-		i++;
-	}
-	top = *(int *)array[i - 1];
-	array[i - 1] = NULL;
-	return (top);
-}
-
-int	peek_void(int total, void **array)
-{
-	int	i;
-	int	top;
-
-	i = 0;
-	while (array[i] != NULL && i < total)
-	{
-		i++;
-	}
-	top = *(int *)array[i - 1];
-	return (top);
+	set_erease_void(total, array);
+	free(array);
 }

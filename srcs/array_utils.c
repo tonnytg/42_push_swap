@@ -6,21 +6,20 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 08:29:36 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/22 15:52:11 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/25 02:23:27 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
-void	set_clean(int total, int *array)
+void	set_erease_void(int total, void **array)
 {
 	int	i;
 
 	i = 0;
 	while (i < total)
 	{
-		array[i] = -1;
+		free(array[i]);
 		i++;
 	}
 }
@@ -61,27 +60,6 @@ void	print_array_void(int total, void **array)
 		}
 		else
 			printf("[%d] - %p\n", i, array[i]);
-		i++;
-	}
-}
-
-int	*new_array(int total)
-{
-	int	*array;
-
-	array = malloc(sizeof(int) * total);
-	set_clean(total, array);
-	return (array);
-}
-
-void	print_array(int total, int *array)
-{
-	int	i;
-
-	i = 0;
-	while (i < total)
-	{
-		ft_printf("[%d] - %d\n", i, array[i]);
 		i++;
 	}
 }

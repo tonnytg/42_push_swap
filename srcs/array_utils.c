@@ -55,11 +55,11 @@ void	print_array_void(int total, void **array)
 		ft_printf("[%d] - %p\n", i, &array[i]);
 		if (array[i] != NULL)
 		{
-			printf("[%d] - VP:%p\n", i, array[i]);
-			printf("[%d] - VD:%d\n", i, *(int *)array[i]);
+			ft_printf("[%d] - VP:%p\n", i, array[i]);
+			ft_printf("[%d] - VD:%d\n", i, *(int *)array[i]);
 		}
 		else
-			printf("[%d] - %p\n", i, array[i]);
+			ft_printf("[%d] - %p\n", i, array[i]);
 		i++;
 	}
 }

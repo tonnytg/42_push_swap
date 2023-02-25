@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 02:55:02 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/23 02:21:26 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/25 02:14:51 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ void	push_swap(int argc, char **argv)
 	{
 		ft_sort_void(total, array);	
 	}
+	set_erease_void(total, array);
+	free(array);
 }

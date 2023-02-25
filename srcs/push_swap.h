@@ -6,12 +6,12 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 02:57:07 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/25 02:17:35 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/25 03:31:34 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef PUSHSWAP_H
+# define PUSHSWAP_H
 
 # include <stdlib.h>
 # include <unistd.h>

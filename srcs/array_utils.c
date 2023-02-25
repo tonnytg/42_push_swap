@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/20 08:29:36 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/25 02:23:27 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/25 05:26:59 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,15 +64,14 @@ void	print_array_void(int total, void **array)
 	}
 }
 
-int	last_p_array(int *array)
+int	last_p_array_void(int total, void **array)
 {
 	int	i;
 
 	i = 0;
-	while (array[i] != '\0' && array[i] != -1)
+	while (array[i] != NULL && i < total)
 	{
 		i++;
 	}
-	ft_printf("return: %d\n", i);
 	return (i - 1);
 }

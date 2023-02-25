@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:30:19 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/22 15:59:39 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/22 19:10:27 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,27 +82,6 @@ int	sort_rr(int *array, int *swap, char c)
 		ft_printf("rr%c\n", c);
 		return (0);		
 	}		
-	return (1);
-}
-
-int	sort_p(int *array, int *swap, char c)
-{
-	int cache;
-
-	if (c == 'a')
-	{
-		cache = pop(swap);
-		push(array, cache);
-		ft_printf("p%c\n", c);
-		return (0);		
-	}
-	if (c == 'b')
-	{
-		cache = pop(array);
-		push(swap, cache);
-		ft_printf("p%c\n", c);
-		return (0);
-	}
 	return (1);
 }
 

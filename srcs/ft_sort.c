@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:07:26 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/25 13:59:51 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/02/28 03:19:10 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,15 @@ void	ft_sort_void(int total, void **array)
 
 	swap = new_array_void(total);
 	i = 0;
-	while (i < total / 2)
+	if (total > 3)
 	{
-		sort_p_void(total, array, swap, 'b');
-		i++;
+		while (i < total / 2)
+		{
+			sort_p_void(total, array, swap, 'b');
+			i++;
+		}		
 	}
+
 	// TODO: Válida alterações nas arrays, valida se vale a pena rodar só as primeiras
 	top_a = last_p_array_void(total, array);
 	if ( (top_a - 1 >= 0) && array[top_a] > array[top_a - 1])

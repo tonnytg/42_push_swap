@@ -3,7 +3,7 @@
 
 Sort numbers with to array A and B.
 
-# Array or LinkedList
+# Array with Void pointers
 
 I decided to user in version 1 only Array
 

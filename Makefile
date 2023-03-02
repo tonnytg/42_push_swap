@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 	make -C libft
 	cp -a libft/libft.h srcs/
 	cp -a libft/libft.a srcs/
-	gcc -c $< -o $@
+	gcc $(CC_ARGS) -c $< -o $@
 
 clean:
 	make -C libft clean

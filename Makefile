@@ -22,7 +22,7 @@ FILES 	= \
 			srcs/main.c
 OBJS  	= $(FILES:.c=.o)
 CC 		= gcc
-CC_ARGS = -g -Wextra -Wall -Werror
+CC_ARGS = -Wextra -Wall -Werror
 
 all: $(NAME)
 

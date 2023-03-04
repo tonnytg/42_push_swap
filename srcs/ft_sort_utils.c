@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:30:19 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/25 12:44:26 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/03/04 02:42:50 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	sort_s_void(int total, void **array, void **swap, char c)
 		value_ptr = swap[top_s];
 		swap[top_s] = swap[top_s - 1];
 		swap[top_s - 1] = value_ptr;
+		ft_printf("s%c\n", c);
 		return (0);		
 	}
 	if (c == 's')
@@ -54,7 +55,9 @@ int	sort_r_void(int total, void **array, void **swap, char c)
 	if (c == 'a')
 	{
 		// TODO: Executa RA
-		ft_printf("r%c\n", c);
+		ft_printf("r%c - %d\n", c, total);
+		ft_printf("%d\n", array[0]);
+		ft_printf("%d\n", swap[0]);
 		return (0);		
 	}
 	if (c == 'b')
@@ -72,13 +75,36 @@ int	sort_r_void(int total, void **array, void **swap, char c)
 	return (1);
 }
 
+void rotate_array(int total,void **array)
+{
+	int i;
+	int temp;
+
+	i = 0;
+	temp = "";
+	while (i <= total)
+	{
+		// Rotate usando swap para troca temporaria
+		//[0]
+		//[1] -> temp 
+		//[2]
+		//[3]
+		temp = array[i]
+		i++;
+	}
+}
+
 // sort_rr rotaciona toda a array em sentido HORARIO -> rra rra rrr
 int	sort_rr_void(int total, void **array, void **swap, char c)
 {
 	if (c == 'a')
 	{
 		// TODO: Executa RRA
-		ft_printf("rr%c\n", c);
+		ft_printf("r%c - %d\n", c, total);
+		ft_printf("%d\n", *(int *)array[0]);
+		ft_printf("%d\n", *(int *)swap[0]);
+
+		
 		
 		return (0);
 	}
@@ -107,7 +133,7 @@ int	sort_p_void(int total, void **array, void **swap, char c)
 		value = pop_void(total, swap);
 		push_void(total, array, value);
 	}
-	if (c == 'b')
+	else if (c == 'b')
 	{
 		value = pop_void(total, array);
 		push_void(total, swap, value);

@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:30:19 by antthoma          #+#    #+#             */
-/*   Updated: 2023/03/04 02:42:50 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/03/05 11:45:59 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 // sort_s muda a posicão do array[top] com a posição[top - 1]
 // somente entre eles
+// sa sb ss
 int	sort_s_void(int total, void **array, void **swap, char c)
 {
 	int	top_a;
@@ -49,21 +50,30 @@ int	sort_s_void(int total, void **array, void **swap, char c)
 	return (1);
 }
 
-// sort_r rotaciona toda a array em sentido ANTI-horario <- ra rb rr
+// sort_r rotaciona toda a array em sentido ANTI-horario <- 
+// ra rb rr
 int	sort_r_void(int total, void **array, void **swap, char c)
 {
 	if (c == 'a')
 	{
 		// TODO: Executa RA
+		int top_a;
+		top_a = last_p_array_void(total, array);
 		ft_printf("r%c - %d\n", c, total);
-		ft_printf("%d\n", array[0]);
-		ft_printf("%d\n", swap[0]);
+		ft_printf("%d\n", *(int *)array[0]);
+		ft_printf("%d\n", *(int *)array[top_a]);
+		rotate_array(total, array, "ccw");
 		return (0);		
 	}
 	if (c == 'b')
 	{
 		// TODO: Executa RB
-		ft_printf("r%c\n", c);
+		int top_s;
+		top_s = last_p_array_void(total, swap);
+		ft_printf("r%c - %d\n", c, total);
+		ft_printf("%d\n", *(int *)swap[0]);
+		ft_printf("%d\n", *(int *)swap[top_s]);
+		rotate_array(total, array, "ccw");
 		return (0);		
 	}
 	if (c == 'r')
@@ -75,55 +85,46 @@ int	sort_r_void(int total, void **array, void **swap, char c)
 	return (1);
 }
 
-void rotate_array(int total,void **array)
-{
-	int i;
-	int temp;
-
-	i = 0;
-	temp = "";
-	while (i <= total)
-	{
-		// Rotate usando swap para troca temporaria
-		//[0]
-		//[1] -> temp 
-		//[2]
-		//[3]
-		temp = array[i]
-		i++;
-	}
-}
-
-// sort_rr rotaciona toda a array em sentido HORARIO -> rra rra rrr
+// sort_rr rotaciona toda a array em sentido HORARIO -> 
+// rra rra rrr
 int	sort_rr_void(int total, void **array, void **swap, char c)
 {
 	if (c == 'a')
 	{
 		// TODO: Executa RRA
-		ft_printf("r%c - %d\n", c, total);
+		int top_a;
+		top_a = last_p_array_void(total, array);
+		ft_printf("rr%c - %d\n", c, total);
 		ft_printf("%d\n", *(int *)array[0]);
-		ft_printf("%d\n", *(int *)swap[0]);
-
-		
-		
+		ft_printf("%d\n", *(int *)array[top_a]);
+		rotate_array(total, array, "cw");
 		return (0);
 	}
 	if (c == 'b')
 	{
 		// TODO: Executa RRB
-		ft_printf("rr%c\n", c);	
-		return (0);		
+		int top_s;
+		top_s = last_p_array_void(total, swap);
+		ft_printf("rr%c\n", c);
+		rotate_array(total, swap, "cw");
+		return (0);
 	}
 	if (c == 'r')
 	{
 		// TODO: Executa RRR
 		ft_printf("rr%c\n", c);
+		ft_printf("rr%c - %d\n", c, total);
+		ft_printf("%d\n", *(int *)array[0]);
+		ft_printf("%d\n", *(int *)swap[0]);
+		rotate_array(total, array, "cw");
+		rotate_array(total, swap, "cw");		
 		return (0);		
 	}		
 	return (1);
 }
 
-// sort_p transfere os dados de do top do array para outro array pa pb
+// sort_p transfere os dados de do top do array para outro array 
+// pa pb
 int	sort_p_void(int total, void **array, void **swap, char c)
 {
 	int	value;

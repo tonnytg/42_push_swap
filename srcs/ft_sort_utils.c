@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 16:30:19 by antthoma          #+#    #+#             */
-/*   Updated: 2023/03/05 11:45:59 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/03/06 22:39:43 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,7 @@ int	sort_r_void(int total, void **array, void **swap, char c)
 		// TODO: Executa RA
 		int top_a;
 		top_a = last_p_array_void(total, array);
-		ft_printf("r%c - %d\n", c, total);
-		ft_printf("%d\n", *(int *)array[0]);
-		ft_printf("%d\n", *(int *)array[top_a]);
+		ft_printf("r%c\n", c);
 		rotate_array(total, array, "ccw");
 		return (0);		
 	}
@@ -70,16 +68,16 @@ int	sort_r_void(int total, void **array, void **swap, char c)
 		// TODO: Executa RB
 		int top_s;
 		top_s = last_p_array_void(total, swap);
-		ft_printf("r%c - %d\n", c, total);
-		ft_printf("%d\n", *(int *)swap[0]);
-		ft_printf("%d\n", *(int *)swap[top_s]);
-		rotate_array(total, array, "ccw");
+		ft_printf("r%c\n", c);
+		rotate_array(total, swap, "ccw");
 		return (0);		
 	}
 	if (c == 'r')
 	{
 		// TODO: Executa RR
 		ft_printf("r%c\n", c);
+		rotate_array(total, array, "ccw");
+		rotate_array(total, swap, "ccw");
 		return (0);
 	}		
 	return (1);
@@ -94,9 +92,7 @@ int	sort_rr_void(int total, void **array, void **swap, char c)
 		// TODO: Executa RRA
 		int top_a;
 		top_a = last_p_array_void(total, array);
-		ft_printf("rr%c - %d\n", c, total);
-		ft_printf("%d\n", *(int *)array[0]);
-		ft_printf("%d\n", *(int *)array[top_a]);
+		ft_printf("rr%c\n", c);
 		rotate_array(total, array, "cw");
 		return (0);
 	}
@@ -113,9 +109,6 @@ int	sort_rr_void(int total, void **array, void **swap, char c)
 	{
 		// TODO: Executa RRR
 		ft_printf("rr%c\n", c);
-		ft_printf("rr%c - %d\n", c, total);
-		ft_printf("%d\n", *(int *)array[0]);
-		ft_printf("%d\n", *(int *)swap[0]);
 		rotate_array(total, array, "cw");
 		rotate_array(total, swap, "cw");		
 		return (0);		

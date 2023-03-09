@@ -54,11 +54,13 @@ void	print_array_void(int total, void **array, void **swap)
 	while (i < total)
 	{
 		if (array[i] != NULL)
-		{
-			ft_printf("[%d]\t|%d\t|%d\n", i, *(int *)array[i], *(int *)swap[i]);
-		}
+			ft_printf("[%d]\t|%d", i, *(int *)array[i]);
 		else
-			ft_printf("[%d]\t|%p|%p\n", i, array[i], swap[i]);
+			ft_printf("\t|%p", array[i]);
+		if (swap[i] != NULL)
+			ft_printf("[%d]\t|%d\n", i, *(int *)swap[i]);
+		else
+			ft_printf("\t|%p\n", swap[i]);
 		i++;
 	}
 }

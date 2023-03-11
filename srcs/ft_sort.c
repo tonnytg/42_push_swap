@@ -45,53 +45,26 @@ void sort_1_array(int total, void **array, void **swap)
 	}	
 }
 
+void	raddixsort(int total, void **array, void **swap)
+{
+	ft_printf("Raddix Sort - Total:%d\n", total);
+	ft_printf("Array: %p\n", array[0]);
+	ft_printf("Swap: %p\n", swap[0]);
+}
+
 // ft_sort_void é o CORE,
-// Ele realiza as checagens e depois faz o sort trocando os valores de lugar no array
-// para isso é chamado as funcoes sa ra rra
+// Ele realiza as checagens para a troca e depois faz o sort trocando os valores de lugar no array
+// para isso é chamado as funcoes s r rr
 void	ft_sort_void(int total, void **array)
 {
-	int		i;
-	int		top_a;
-	int		top_s;
 	void	**swap;
 
 	swap = new_array_void(total);
-	i = 0;
-	
-	// Se for maior que 3 elementos ele realiza a quebra wqem duas colunas
 	split_array(total, array, swap);
 
-	top_a = last_p_array_void(total, array);
-	print_array_void(total, array, swap);
-	i = 0;
-	while (i < top_a)
-	{	
-		if (array[top_a] > array[top_a - 1])
-		{
-			sort_s_void(total, array, swap, 'a');
-		}
-		if (array[top_a] < array[0])
-		{
-			sort_r_void(total, array, swap, 'a');
-		}
-		i++;
-	}
-	i = 0;
-	top_s = last_p_array_void(total, swap);
-	while (i < top_s)
-	{	
-		if (swap[top_s] < swap[top_s - 1])
-		{
-			sort_s_void(total, array, swap, 'b');
-		}
-		top_a = last_p_array_void(total, array);
-		if (swap[top_s] < array[top_a])
-		{
-			sort_p_void(total, array, swap, 'b');
-		}
-		i++;
-	}
-	print_array_void(total, array, swap);
+	// Sort
+	raddixsort(total, array, swap);
+
 	set_erease_void(total, swap);
 	free(swap);
 	return;

@@ -21,7 +21,7 @@ void	push_swap(int argc, char **argv)
 	total = argc - 1;
 	array = new_array_void(total);
 	i = total;
-	while (1 <= i)
+	while (i >= 1)
 	{
 		push_void(total, array, ft_atoi(argv[i]));
 		i--;

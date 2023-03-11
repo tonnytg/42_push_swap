@@ -15,8 +15,6 @@
 int	check_values(int total, char **values)
 {
 	int	i;
-	int check_v;
-	int result;
 
 	if (total < 2)
 		return (1);

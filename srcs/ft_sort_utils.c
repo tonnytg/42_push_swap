@@ -13,8 +13,7 @@
 #include "push_swap.h"
 
 // sort_s muda a posicão do array[top] com a posição[top - 1]
-// somente entre eles
-// sa sb ss
+// somente entre eles sa sb ss
 int	sort_s_void(int total, void **array, void **swap, char c)
 {
 	int	top_a;
@@ -57,8 +56,6 @@ int	sort_r_void(int total, void **array, void **swap, char c)
 	if (c == 'a')
 	{
 		// TODO: Executa RA
-		int top_a;
-		top_a = last_p_array_void(total, array);
 		ft_printf("r%c\n", c);
 		rotate_array(total, array, "ccw");
 		return (0);		
@@ -66,8 +63,6 @@ int	sort_r_void(int total, void **array, void **swap, char c)
 	if (c == 'b')
 	{
 		// TODO: Executa RB
-		int top_s;
-		top_s = last_p_array_void(total, swap);
 		ft_printf("r%c\n", c);
 		rotate_array(total, swap, "ccw");
 		return (0);		
@@ -90,8 +85,6 @@ int	sort_rr_void(int total, void **array, void **swap, char c)
 	if (c == 'a')
 	{
 		// TODO: Executa RRA
-		int top_a;
-		top_a = last_p_array_void(total, array);
 		ft_printf("rr%c\n", c);
 		rotate_array(total, array, "cw");
 		return (0);
@@ -99,8 +92,6 @@ int	sort_rr_void(int total, void **array, void **swap, char c)
 	if (c == 'b')
 	{
 		// TODO: Executa RRB
-		int top_s;
-		top_s = last_p_array_void(total, swap);
 		ft_printf("rr%c\n", c);
 		rotate_array(total, swap, "cw");
 		return (0);

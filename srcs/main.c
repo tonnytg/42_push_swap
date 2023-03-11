@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 	if (check_values(argc, argv))
 	{
 		ft_printf("Error\n");
-		exit (1);
+		return (1);
 	}
 	push_swap(argc, argv);
 	return (0);

@@ -35,6 +35,9 @@ $(NAME): $(OBJS)
 	cp -a libft/libft.a srcs/
 	gcc $(CC_ARGS) -c $< -o $@
 
+debug:
+	$(CC) $(CC_ARGS) -g $(FILES) srcs/libft.a -o srcs/$(NAME)
+
 clean:
 	make -C libft clean
 	rm $(OBJS)

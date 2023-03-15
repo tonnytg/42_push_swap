@@ -14,22 +14,22 @@
 
 void	push_swap(int argc, char **argv)
 {
-	void	**array;
+	void	**stack_a;
 	int		i;
 	int		total;
 
 	total = argc - 1;
-	array = new_array_void(total);
+	stack_a = new_array_void(total);
 	i = total;
 	while (i >= 1)
 	{
-		push_void(total, array, ft_atoi(argv[i]));
+		push_void(total, stack_a, ft_atoi(argv[i]));
 		i--;
 	}
-	if (push_swap_needed(total, array))
+	if (push_swap_needed(total, stack_a))
 	{
-		ft_sort_void(total, array);	
+		ft_sort_void(total, stack_a);	
 	}
-	set_erease_void(total, array);
-	free(array);
+	set_erease_void(total, stack_a);
+	free(stack_a);
 }

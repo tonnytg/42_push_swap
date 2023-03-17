@@ -19,7 +19,8 @@ void	set_erease_void(int total, void **array)
 	i = 0;
 	while (i < total)
 	{
-		free(array[i]);
+		// free(array[i]);
+		array[i] = NULL;
 		i++;
 	}
 }
@@ -31,6 +32,7 @@ void	set_clean_void(int total, void **array)
 	i = 0;
 	while (i < total)
 	{
+		free(array[i]);
 		array[i] = NULL;
 		i++;
 	}
@@ -41,24 +43,28 @@ void	*new_array_void(int total)
 	void **array;
 
 	array = malloc(total * sizeof(void *));
-	set_clean_void(total, array);
 	return (array);	
 }
 
 void	print_array_void(int total, void **array, void **swap)
 {
 	int	i;
+	int *value_ptr;
 
 	i = 0;
 	ft_printf("I\t|A\t|B\n");
 	while (i < total)
 	{
 		if (array[i] != NULL)
+		{
 			ft_printf("[%d]\t|%d", i, *(int *)array[i]);
+			value_ptr = array[i];
+			ft_printf("teste: %d\n", value_ptr[1]);
+		}
 		else
 			ft_printf("\t|%p", array[i]);
 		if (swap[i] != NULL)
-			ft_printf("[%d]\t|%d\n", i, *(int *)swap[i]);
+			ft_printf("\t|%d\n", *(int *)swap[i]);
 		else
 			ft_printf("\t|%p\n", swap[i]);
 		i++;

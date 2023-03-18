@@ -19,6 +19,8 @@ FILES 	= \
 			srcs/push_swap.c \
 			srcs/ft_sort_utils.c \
 			srcs/ft_sort.c \
+			srcs/raddixsort.c \
+			srcs/countsort.c \
 			srcs/main.c
 OBJS  	= $(FILES:.c=.o)
 CC 		= gcc

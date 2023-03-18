@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raddixsort.c                                       :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,3 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-void raddixsort(int total, void **array)
-{
-    void **swap;
-
-    swap = new_array_void(total);
-    int i = 0;
-    while (i < total)
-    {
-        i++;
-    }
-    // print_array_void(total, array, array);
-
-
-    array[0] = NULL;
-    free(swap);
-}

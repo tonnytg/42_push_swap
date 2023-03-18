@@ -45,10 +45,8 @@ void push_void(int total, void **array, int value)
 		ft_printf("Panic, array it is full");
 		exit (1);
 	}
-    value_ptr = malloc(sizeof(int) * 3);
+    value_ptr = malloc(sizeof(int) * 2);
     value_ptr[0] = value;
-	value_ptr[1] = value + 1;
-	value_ptr[2] = 0;
 	array[i] = value_ptr;
 }
 

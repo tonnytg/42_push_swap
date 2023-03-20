@@ -46,10 +46,62 @@ void	*new_array_void(int total)
 	return (array);	
 }
 
+void	reset_array_indice(int total, void **array)
+{
+	int *value_ptr;
+	int i;
+
+	i = 0;
+	while (i < total)
+	{
+		value_ptr = array[i];
+		value_ptr[1] = 0;
+		i++;
+	}
+}
+
+// TODO: Set indice
+void set_array_indice(int total, void **array)
+{
+    int i, j;
+	int counter;
+	int *value_ptr1;
+	int *value_ptr2;
+
+	i = 0;
+	counter = 1;
+	while (i < total)
+	{
+		value_ptr1 = array[i];
+		// Se não tiver indice, eu adicione o indice
+		if (value_ptr1[1] == 0)
+			value_ptr1[1] = counter;
+		j = 0;
+		while(j < total)
+		{
+			value_ptr2 = array[j];
+			if (value_ptr2[1] == 0)
+			{
+				// Se posicao 1 maior que posicao 2 que dizer que tenho que
+				// definir a posicao 2 como o counter e zerar o anterior
+				if (value_ptr1[0] > value_ptr2[0])
+				{
+					value_ptr1[1] = 0;
+					value_ptr2[1] = counter;
+					break;
+				}
+			}
+			j++;
+		}
+		counter++;
+		i++;
+	}
+}
+
+
 void	print_array_void(int total, void **array, void **swap)
 {
 	int	i;
-	int *value_ptr;
 
 	i = 0;
 	ft_printf("I\t|A\t|B\n");
@@ -58,8 +110,6 @@ void	print_array_void(int total, void **array, void **swap)
 		if (array[i] != NULL)
 		{
 			ft_printf("[%d]\t|%d", i, *(int *)array[i]);
-			value_ptr = array[i];
-			ft_printf("teste: %d\n", value_ptr[1]);
 		}
 		else
 			ft_printf("\t|%p", array[i]);

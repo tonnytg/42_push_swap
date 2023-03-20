@@ -34,4 +34,7 @@ int		sort_s_void(int total, void **array, void **swap, char c);
 int		sort_r_void(int total, void **array, void **swap, char c);
 int		sort_rr_void(int total, void **array, void **swap, char c);
 int		sort_p_void(int total, void **array, void **swap, char c);
+void    raddixsort(int total, void **array);
+void	reset_array_indice(int total, void **array);
+void	set_array_indice(int total, void **array);
 #endif

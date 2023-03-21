@@ -26,6 +26,29 @@ void	push_swap(int argc, char **argv)
 		push_void(total, stack_a, ft_atoi(argv[i]));
 		i--;
 	}
+	reset_array_indice(total, stack_a);
+	// i = 0;
+	// while (i < total)
+	// {
+	// 	int *value_ptr;
+
+	// 	value_ptr = stack_a[i];
+
+	// 	ft_printf("Indice:%d\n", value_ptr[1]);
+	// 	i++;
+	// }
+	set_array_indice(total, stack_a);
+	i = 0;
+	while (i < total)
+	{
+		int *value_ptr;
+
+		value_ptr = stack_a[i];
+
+		ft_printf("Indice:%d\n", value_ptr[1]);
+		i++;
+	}	
+
 	if (push_swap_needed(total, stack_a))
 	{
 		ft_sort_void(total, stack_a);	

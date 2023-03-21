@@ -28,44 +28,13 @@ void split_array(int total, void **array, void **swap)
 	}
 }
 
-void sort_1_array(int total, void **array, void **swap)
-{
-	int	top_a;
-
-	// Checa para fazer rotação
-	top_a = last_p_array_void(total, array);
-	if (top_a != -1)
-	{
-		// Se o topo for maior que o ultimo, a rotação é ANTI-Horario <-
-		if (*(int *)array[top_a] > *(int *)array[0])
-		{
-			ft_printf("%d > %d\n", *(int *)array[top_a], *(int *)array[0]);
-			sort_rr_void(total, array, swap, 'a');
-		}
-	}	
-}
-
-void	raddixsort(int total, void **array, void **swap)
-{
-	ft_printf("Raddix Sort - Total:%d\n", total);
-	ft_printf("Array: %p\n", array[0]);
-	ft_printf("Swap: %p\n", swap[0]);
-}
-
 // ft_sort_void é o CORE,
 // Ele realiza as checagens para a troca e depois faz o sort trocando os valores de lugar no array
 // para isso é chamado as funcoes s r rr
 void	ft_sort_void(int total, void **array)
 {
-	void	**swap;
+	ft_printf("sort accepted\n");
+	raddixsort(total, array);
 
-	swap = new_array_void(total);
-	split_array(total, array, swap);
-
-	// Sort
-	raddixsort(total, array, swap);
-
-	set_erease_void(total, swap);
-	free(swap);
 	return;
 }

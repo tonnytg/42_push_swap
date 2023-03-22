@@ -61,41 +61,59 @@ void	reset_array_indice(int total, void **array)
 }
 
 // TODO: Set indice
-void set_array_indice(int total, void **array)
-{
-    int i, j;
-	int counter;
-	int *value_ptr1;
-	int *value_ptr2;
+// void set_array_indice(int tamanho, void **array)
 
-	i = 0;
-	counter = 1;
-	while (i < total)
-	{
-		value_ptr1 = array[i];
-		// Se não tiver indice, eu adicione o indice
-		if (value_ptr1[1] == 0)
-			value_ptr1[1] = counter;
-		j = 0;
-		while(j < total)
-		{
-			value_ptr2 = array[j];
-			if (value_ptr2[1] == 0)
-			{
-				// Se posicao 1 maior que posicao 2 que dizer que tenho que
-				// definir a posicao 2 como o counter e zerar o anterior
-				if (value_ptr1[0] > value_ptr2[0])
-				{
-					value_ptr1[1] = 0;
-					value_ptr2[1] = counter;
-					break;
-				}
-			}
-			j++;
-		}
-		counter++;
-		i++;
-	}
+typedef struct {
+    int valor;
+    int indice;
+} Par;
+
+void trocar(Par *x, Par *y) {
+    Par temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int particionar(Par *pares, int esquerda, int direita) {
+    int pivo = pares[direita].valor;
+    int i = esquerda - 1;
+    
+    for (int j = esquerda; j < direita; j++) {
+        if (pares[j].valor < pivo) {
+            i++;
+            trocar(&pares[i], &pares[j]);
+        }
+    }
+    
+    trocar(&pares[i+1], &pares[direita]);
+    return i+1;
+}
+
+void quicksort(Par *pares, int esquerda, int direita) {
+    if (esquerda < direita) {
+        int pivo = particionar(pares, esquerda, direita);
+        quicksort(pares, esquerda, pivo-1);
+        quicksort(pares, pivo+1, direita);
+    }
+}
+
+void set_array_indice(int tamanho, void **array) {
+    Par *pares = malloc(tamanho * sizeof(Par));
+    
+    for (int i = 0; i < tamanho; i++) {
+        int *vetor = array[i];
+        pares[i].valor = vetor[0];
+        pares[i].indice = i;
+    }
+    
+    quicksort(pares, 0, tamanho-1);
+    
+    for (int i = 0; i < tamanho; i++) {
+        int *vetor = array[pares[i].indice];
+        vetor[1] = i;
+    }
+    
+    free(pares);
 }
 
 

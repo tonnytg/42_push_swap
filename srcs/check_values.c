@@ -12,18 +12,34 @@
 
 #include "push_swap.h"
 
-int	check_values(int total, char **values)
-{
-	int	i;
+// int	check_values(int total, char **values)
+// {
+// 	int	i;
 
-	if (total < 2)
-		return (1);
-	i = 1;
-	while (i < total)
-	{
-		if (! ft_strisdigit(values[i]))
-			return (1);
-		i++;
-	}
-	return (0);
+// 	if (total < 2)
+// 		return (1);
+// 	i = 1;
+// 	while (i < total)
+// 	{
+// 		if (! ft_strisdigit(values[i]))
+// 			return (1);
+// 		i++;
+// 	}
+// 	return (0);
+// }
+
+int check_values(int total, char **values)
+{
+    int i;
+
+    if (total < 2)
+        return 1;
+    i = 1;
+    while (i < total)
+    {
+        if (!ft_strisdigit(values[i]) && !(values[i][0] == '-' && ft_strisdigit(&values[i][1])))
+            return 1;
+        i++;
+    }
+    return 0;
 }

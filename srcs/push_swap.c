@@ -23,10 +23,9 @@ void	push_swap(int argc, char **argv)
 	reset_array_indice(total, stack_a);
 	set_array_indice(total, stack_a);
 	print_indices(total, stack_a);
-
 	if (push_swap_needed(total, stack_a))
 	{
-		ft_sort_void(total, stack_a);	
+		ft_sort_void(total, stack_a);
 	}
 	set_erease_void(total, stack_a);
 	free(stack_a);

@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 void	set_clean(int *array, int total)
 {
 	int	i;

@@ -29,10 +29,10 @@ int	push_swap_needed(int total, void **array)
 	return (0);
 }
 
-void push_void(int total, void **array, int value)
+void	push_void(int total, void **array, int value)
 {
-	int *value_ptr;
-	int i;
+	int	*value_ptr;
+	int	i;
 
 	i = 0;
 	while (array[i] != NULL)
@@ -41,12 +41,11 @@ void push_void(int total, void **array, int value)
 	}
 	if (i == total)
 	{
-		// TODO: Validar se no PDF pode imprimir erro em algum momento
 		ft_printf("Panic, array it is full");
 		exit (1);
 	}
-    value_ptr = malloc(sizeof(int) * 2);
-    value_ptr[0] = value;
+	value_ptr = malloc(sizeof(int) * 2);
+	value_ptr[0] = value;
 	array[i] = value_ptr;
 }
 

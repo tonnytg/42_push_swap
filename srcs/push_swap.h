@@ -17,6 +17,12 @@
 # include <unistd.h>
 # include "libft.h"
 
+typedef struct s_pair
+{
+	int	valor;
+	int	indice;
+}	t_pair;
+
 int		check_values(int total, char **values);
 void	push_swap(int argc, char **argv);
 int		push_swap_needed(int total, void **array);
@@ -37,6 +43,6 @@ int		sort_rr_void(int total, void **array, void **swap, char c);
 int		sort_p_void(int total, void **array, void **swap, char c);
 void    raddixsort(int total, void **array);
 void	reset_array_indice(int total, void **array);
-void	set_array_indice(int total, void **array);
+void	set_array_indice(int size, void **array);
 void	print_indices(int total, void **array);
 #endif

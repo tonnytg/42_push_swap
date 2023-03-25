@@ -19,7 +19,6 @@ void	set_erease_void(int total, void **array)
 	i = 0;
 	while (i < total)
 	{
-		// free(array[i]);
 		array[i] = NULL;
 		i++;
 	}
@@ -40,14 +39,13 @@ void	push_all_values(int total, void **array, char **argv)
 void	print_indices(int total, void **array)
 {
 	int	i;
+	int	*value_ptr;
 
 	i = 0;
 	while (i < total)
 	{
-		int *value_ptr;
-
 		value_ptr = array[i];
-		ft_printf("Indice:%d\n", value_ptr[1]);
+		ft_printf("Value: %d \t Indice:%d\n", value_ptr[0], value_ptr[1]);
 		i++;
 	}
 }
@@ -67,16 +65,16 @@ void	set_clean_void(int total, void **array)
 
 void	*new_array_void(int total)
 {
-	void **array;
+	void	**array;
 
 	array = malloc(total * sizeof(void *));
-	return (array);	
+	return (array);
 }
 
 void	reset_array_indice(int total, void **array)
 {
-	int *value_ptr;
-	int i;
+	int	*value_ptr;
+	int	i;
 
 	i = 0;
 	while (i < total)
@@ -87,62 +85,75 @@ void	reset_array_indice(int total, void **array)
 	}
 }
 
-// TODO: Set indice
-// void set_array_indice(int tamanho, void **array)
+void	change(t_pair *x, t_pair *y)
+{
+	t_pair	temp;
 
-typedef struct {
-    int valor;
-    int indice;
-} Par;
-
-void trocar(Par *x, Par *y) {
-    Par temp = *x;
-    *x = *y;
-    *y = temp;
+	temp = *x;
+	*x = *y;
+	*y = temp;
 }
 
-int particionar(Par *pares, int esquerda, int direita) {
-    int pivo = pares[direita].valor;
-    int i = esquerda - 1;
-    
-    for (int j = esquerda; j < direita; j++) {
-        if (pares[j].valor < pivo) {
-            i++;
-            trocar(&pares[i], &pares[j]);
-        }
-    }
-    
-    trocar(&pares[i+1], &pares[direita]);
-    return i+1;
+int	partition(t_pair *pairs, int left, int right)
+{
+	int	pivot;
+	int	i;
+	int	j;
+
+	pivot = pairs[right].valor;
+	i = left - 1;
+	j = left;
+	while (j < right)
+	{
+		if (pairs[j].valor < pivot)
+		{
+			i++;
+			change(&pairs[i], &pairs[j]);
+		}
+		j++;
+	}
+	change(&pairs[i + 1], &pairs[right]);
+	return (i + 1);
 }
 
-void quicksort(Par *pares, int esquerda, int direita) {
-    if (esquerda < direita) {
-        int pivo = particionar(pares, esquerda, direita);
-        quicksort(pares, esquerda, pivo-1);
-        quicksort(pares, pivo+1, direita);
-    }
+void	quicksort(t_pair *pairs, int left, int right)
+{
+	int	pivo;
+
+	if (left < right)
+	{
+		pivo = partition(pairs, left, right);
+		quicksort(pairs, left, pivo - 1);
+		quicksort(pairs, pivo + 1, right);
+	}
 }
 
-void set_array_indice(int tamanho, void **array) {
-    Par *pares = malloc(tamanho * sizeof(Par));
-    
-    for (int i = 0; i < tamanho; i++) {
-        int *vetor = array[i];
-        pares[i].valor = vetor[0];
-        pares[i].indice = i;
-    }
-    
-    quicksort(pares, 0, tamanho-1);
-    
-    for (int i = 0; i < tamanho; i++) {
-        int *vetor = array[pares[i].indice];
-        vetor[1] = i;
-    }
-    
-    free(pares);
-}
+void	set_array_indice(int size, void **array)
+{
+	int		i;
+	int		*vector;
+	t_pair	*pairs;
 
+	vector = NULL;
+	pairs = malloc(size * sizeof(t_pair));
+	i = 0;
+	while (i < size)
+	{
+		vector = array[i];
+		pairs[i].valor = vector[0];
+		pairs[i].indice = i;
+		i++;
+	}
+	quicksort(pairs, 0, size - 1);
+	i = 0;
+	while (i < size)
+	{
+		vector = array[pairs[i].indice];
+		vector[1] = i;
+		i++;
+	}
+	free(pairs);
+}
 
 void	print_array_void(int total, void **array, void **swap)
 {
@@ -169,66 +180,59 @@ void	print_array_void(int total, void **array, void **swap)
 // Get max int do array
 int	get_max_int_array(int total, void **array)
 {
-    int max;
-	int i;
-	
+	int	max;
+	int	i;
+	int	num;
+
 	max = *(int *)array[0];
 	i = 1;
 	while (i < total)
 	{
-		int num = *(int *)array[i];
-        if (num > max)
-        {
-            max = num;
-        }
+		num = *(int *)array[i];
+		if (num > max)
+		{
+			max = num;
+		}
 		i++;
 	}
-    return max;
+	return (max);
 }
-
-
 
 // rotate vai ficar responsavel por girar os valores dentro do array
 // é um processo custoso porque precisa jogar o valor em uma variavel temporaria
 // e depois realocar ela
-void rotate_array(int total, void **array, char *option)
+void	rotate_array(int total, void **array, char *option)
 {
-	int	i;
-	int	top_a;
-	void *tmp;
-	// Sentdio Horario Clockwise
+	int		i;
+	int		top_a;
+	void	*tmp;
+
 	if (ft_strcmp(option, "cw") == 0)
 	{
-		// TODO: Horário
-		// ft_printf("CW\n");
 		top_a = last_p_array_void(total, array);
 		tmp = array[top_a];
 		i = top_a;
 		while (i > 0)
 		{
-			array[i] = array[i-1];
+			array[i] = array[i - 1];
 			i--;
 		}
 		array[0] = tmp;
-		return;
+		return ;
 	}
 	if (ft_strcmp(option, "ccw") == 0)
 	{
-		// TODO: Anti-Horario
-		// ft_printf("CCW\n");
 		top_a = last_p_array_void(total, array);
 		tmp = array[0];
 		i = 0;
 		while (i < top_a)
 		{
-			array[i] = array[i+1];
+			array[i] = array[i + 1];
 			i++;
 		}
 		array[top_a] = tmp;
-		return;		
+		return ;
 	}
-	// TODO: Caso de errado
-	ft_printf("Deu errado");
 	exit (1);
 }
 

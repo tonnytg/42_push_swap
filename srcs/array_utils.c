@@ -25,6 +25,33 @@ void	set_erease_void(int total, void **array)
 	}
 }
 
+void	push_all_values(int total, void **array, char **argv)
+{
+	int	i;
+
+	i = total;
+	while (i >= 1)
+	{
+		push_void(total, array, ft_atoi(argv[i]));
+		i--;
+	}
+}
+
+void	print_indices(int total, void **array)
+{
+	int	i;
+
+	i = 0;
+	while (i < total)
+	{
+		int *value_ptr;
+
+		value_ptr = array[i];
+		ft_printf("Indice:%d\n", value_ptr[1]);
+		i++;
+	}
+}
+
 void	set_clean_void(int total, void **array)
 {
 	int	i;

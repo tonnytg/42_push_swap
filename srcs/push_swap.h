@@ -26,6 +26,7 @@ void	print_array_void(int total, void **array, void **swap);
 int		last_p_array_void(int total, void **array);
 void    rotate_array(int total, void **array, char *option);
 void	set_erease_void(int total, void **array);
+void	push_all_values(int total, void **array, char **argv);
 void	push_void(int total, void **array, int value);
 int		pop_void(int total, void **array);
 void	ft_sort(int total, int *array);
@@ -37,4 +38,5 @@ int		sort_p_void(int total, void **array, void **swap, char c);
 void    raddixsort(int total, void **array);
 void	reset_array_indice(int total, void **array);
 void	set_array_indice(int total, void **array);
+void	print_indices(int total, void **array);
 #endif

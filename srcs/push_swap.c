@@ -15,39 +15,14 @@
 void	push_swap(int argc, char **argv)
 {
 	void	**stack_a;
-	int		i;
 	int		total;
 
 	total = argc - 1;
 	stack_a = new_array_void(total);
-	i = total;
-	while (i >= 1)
-	{
-		push_void(total, stack_a, ft_atoi(argv[i]));
-		i--;
-	}
+	push_all_values(total, stack_a, argv);
 	reset_array_indice(total, stack_a);
-	// i = 0;
-	// while (i < total)
-	// {
-	// 	int *value_ptr;
-
-	// 	value_ptr = stack_a[i];
-
-	// 	ft_printf("Indice:%d\n", value_ptr[1]);
-	// 	i++;
-	// }
 	set_array_indice(total, stack_a);
-	i = 0;
-	while (i < total)
-	{
-		int *value_ptr;
-
-		value_ptr = stack_a[i];
-
-		ft_printf("Indice:%d\n", value_ptr[1]);
-		i++;
-	}	
+	print_indices(total, stack_a);
 
 	if (push_swap_needed(total, stack_a))
 	{

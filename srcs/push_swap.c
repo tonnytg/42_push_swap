@@ -12,6 +12,18 @@
 
 #include "push_swap.h"
 
+void	push_all_values(int total, void **array, char **argv)
+{
+	int	i;
+
+	i = total;
+	while (i >= 1)
+	{
+		push_void(total, array, ft_atoi(argv[i]));
+		i--;
+	}
+}
+
 void	push_swap(int argc, char **argv)
 {
 	void	**stack_a;
@@ -22,7 +34,6 @@ void	push_swap(int argc, char **argv)
 	push_all_values(total, stack_a, argv);
 	reset_array_indice(total, stack_a);
 	set_array_indice(total, stack_a);
-	print_indices(total, stack_a);
 	if (push_swap_needed(total, stack_a))
 	{
 		ft_sort_void(total, stack_a);

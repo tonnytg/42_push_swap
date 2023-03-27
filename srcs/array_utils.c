@@ -24,18 +24,6 @@ void	set_erease_void(int total, void **array)
 	}
 }
 
-void	push_all_values(int total, void **array, char **argv)
-{
-	int	i;
-
-	i = total;
-	while (i >= 1)
-	{
-		push_void(total, array, ft_atoi(argv[i]));
-		i--;
-	}
-}
-
 void	print_indices(int total, void **array)
 {
 	int	i;
@@ -100,12 +88,12 @@ int	partition(t_pair *pairs, int left, int right)
 	int	i;
 	int	j;
 
-	pivot = pairs[right].valor;
+	pivot = pairs[right].value;
 	i = left - 1;
 	j = left;
 	while (j < right)
 	{
-		if (pairs[j].valor < pivot)
+		if (pairs[j].value < pivot)
 		{
 			i++;
 			change(&pairs[i], &pairs[j]);
@@ -118,13 +106,13 @@ int	partition(t_pair *pairs, int left, int right)
 
 void	quicksort(t_pair *pairs, int left, int right)
 {
-	int	pivo;
+	int	pivot;
 
 	if (left < right)
 	{
-		pivo = partition(pairs, left, right);
-		quicksort(pairs, left, pivo - 1);
-		quicksort(pairs, pivo + 1, right);
+		pivot = partition(pairs, left, right);
+		quicksort(pairs, left, pivot - 1);
+		quicksort(pairs, pivot + 1, right);
 	}
 }
 
@@ -140,7 +128,7 @@ void	set_array_indice(int size, void **array)
 	while (i < size)
 	{
 		vector = array[i];
-		pairs[i].valor = vector[0];
+		pairs[i].value = vector[0];
 		pairs[i].indice = i;
 		i++;
 	}

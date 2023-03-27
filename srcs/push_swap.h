@@ -19,7 +19,7 @@
 
 typedef struct s_pair
 {
-	int	valor;
+	int	value;
 	int	indice;
 }	t_pair;
 

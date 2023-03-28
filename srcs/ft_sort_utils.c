@@ -92,13 +92,14 @@ int	sort_rr_void(int total, void **array, void **swap, char c)
 	return (1);
 }
 
+// TODO: Convert push and pop to get and save vetor with 2 postion int *value_ptr;
 int	sort_p_void(int total, void **array, void **swap, char c)
 {
-	int	value;
+	int	*value_ptr;
 
 	if (c == 'a')
 	{
-		value = pop_void(total, swap);
+		value_ptr = pop_void(total, swap);
 		push_void(total, array, value);
 	}
 	else if (c == 'b')

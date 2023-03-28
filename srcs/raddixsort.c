@@ -80,40 +80,46 @@ int get_bit(int value, int bit)
 void counting_sort_bit(int total, void **array, void **swap, int bit)
 {
 	int i;
-	int count[2] = {0, 0};
 	int *value_ptr;
-	int index;
+	char *bits;
+	int top_a;
 
-	// Contagem dos bits 0 e 1
 	i = 0;
+	print_indices(total, array);
+	ft_printf("[Start]\n");
 	while (i < total)
 	{
-		value_ptr = array[i];
-		count[get_bit(value_ptr[1], bit)]++;
+		top_a = last_p_array_void(total, array);
+		value_ptr = array[top_a];
+		bits = ft_char_to_bit(value_ptr[1]);
+		ft_printf("Number: %d - Bits: %s - Bit:%d - GetBit: %d\n", value_ptr[0], bits, bit, get_bit(value_ptr[1], bit));
+		if (get_bit(value_ptr[1], bit) == 0)
+		{
+			top_a = last_p_array_void(total, array);
+			value_ptr = array[top_a];
+			ft_printf("[1] - top_a:%d - Value: %d - Indice: %d - ", top_a, value_ptr[0], value_ptr[1]);
+			ft_printf("[Troca - pb]\n---\n");
+			sort_p_void(total, array, swap, 'b');
+		}
+		else
+		{
+			ft_printf("[2] - top_a:%d - Value: %d - Indice: %d - ", top_a, value_ptr[0], value_ptr[1]);
+			ft_printf("[Rotaciona - ra]\n");
+			rotate_array(total, array, "ccw");
+			print_indices(total, array);
+			ft_printf("---\n");
+		}
 		i++;
 	}
-	ft_printf("contagem dos bits1:%d\n", count[0]);
-	ft_printf("contagem dos bits2:%d\n", count[1]);
 
-	// Acumula os valores na contagem
-	count[1] += count[0];
-
-	// Aplica o Counting Sort baseado nos bits
-	i = total - 1;
-	while ( i >= 0)
-	{
-		value_ptr = array[i];
-		index = get_bit(value_ptr[1], bit);
-		count[index]--;
-		swap[count[index]] = array[i];
-		i--;
-	}
-
-	// Copia os elementos do array swap de volta para o array original
 	i = 0;
 	while (i < total)
 	{
-		array[i] = swap[i];
+		if (swap[i] != NULL)
+		{
+			value_ptr = swap[i];
+			sort_p_void(total, array, swap, 'a');
+		}
 		i++;
 	}
 }
@@ -123,21 +129,17 @@ void raddixsort(int total, void **array)
 	void **swap;
 	int max;
 	int num_bits;
-	int bit;
+	int i;
 
 	swap = new_array_void(total);
-
 	max = get_max_indice(total, array);
 	num_bits = get_count_bit(max);
-
-	// Aplica o Counting Sort em cada bit
-	bit = 0;
-	while (bit < num_bits)
+	i = 0;
+	while (i < num_bits)
 	{
-		counting_sort_bit(total, array, swap, bit);
-		bit++;
+		counting_sort_bit(total, array, swap, i);
+		i++;
 	}
-
 	print_indices(total, array);
 	free(swap);
 }

@@ -32,8 +32,10 @@ void	print_indices(int total, void **array)
 	i = 0;
 	while (i < total)
 	{
-		value_ptr = array[i];
-		ft_printf("Value: %d \t Indice:%d\n", value_ptr[0], value_ptr[1]);
+		if (array[i] != NULL) {
+			value_ptr = array[i];
+			ft_printf("Value: %d \t Indice:%d\n", value_ptr[0], value_ptr[1]);
+		}
 		i++;
 	}
 }
@@ -165,7 +167,6 @@ void	print_array_void(int total, void **array, void **swap)
 	}
 }
 
-// Get max int do array
 int	get_max_int_array(int total, void **array)
 {
 	int	max;

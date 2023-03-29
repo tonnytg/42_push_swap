@@ -19,7 +19,7 @@ void	push_all_values(int total, void **array, char **argv)
 	i = total;
 	while (i >= 1)
 	{
-		push_void(total, array, ft_atoi(argv[i]));
+		push_void(total, array, ft_atoi(argv[i]), 0);
 		i--;
 	}
 }

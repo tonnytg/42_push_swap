@@ -49,29 +49,6 @@ int	get_count_bit(int value)
 	return (count);
 }
 
-//void	raddixsort(int total, void **array)
-//{
-//	void	**swap;
-//	int i;
-//	int *value_ptr;
-//	int max;
-//	int counter;
-//
-//	swap = new_array_void(total);
-//
-//	max = get_max_indice(total, array);
-//	counter = 0;
-//	counter = get_count_bit(max);
-//	ft_printf("counter: %d - max: %d\n", counter, max);
-//
-//	// create count sort with bit
-//	// TODO: create a function to use Counting Sort to organize bits
-//
-//
-//	print_indices(total, array);
-//	free(swap);
-//}
-
 int get_bit(int value, int bit)
 {
 	return (value >> bit) & 1;
@@ -81,53 +58,32 @@ void counting_sort_bit(int total, void **array, void **swap, int bit)
 {
 	int i;
 	int *value_ptr;
-	char *bits;
 	int top_a;
 
 	i = 0;
-	print_indices(total, array);
-	ft_printf("[Start]\n");
 	while (i < total)
 	{
 		top_a = last_p_array_void(total, array);
 		value_ptr = array[top_a];
-		bits = ft_char_to_bit(value_ptr[1]);
-		ft_printf("Number: %d - Bits: %s - Bit:%d - GetBit: %d\n", value_ptr[0], bits, bit, get_bit(value_ptr[1], bit));
 		if (get_bit(value_ptr[1], bit) == 0)
 		{
 			top_a = last_p_array_void(total, array);
 			value_ptr = array[top_a];
-			ft_printf("[1] - top_a:%d - Value: %d - Indice: %d - ", top_a, value_ptr[0], value_ptr[1]);
-			ft_printf("[Troca - pb]\n---\n");
 			sort_p_void(total, array, swap, 'b');
 		}
 		else
 		{
-			ft_printf("[2] - top_a:%d - Value: %d - Indice: %d - ", top_a, value_ptr[0], value_ptr[1]);
-			ft_printf("[Rotaciona - ra]\n");
-			rotate_array(total, array, "ccw");
-			print_indices(total, array);
-			ft_printf("---\n");
+			rotate_array(total, array, "cw");
 		}
 		i++;
 	}
 
-	i = 0;
-	while (i < total)
+	top_a = last_p_array_void(total, swap);
+	while (top_a >= 0)
 	{
-		if (swap[i] != NULL)
-		{
-			value_ptr = swap[i];
-			sort_p_void(total, array, swap, 'a');
-		}
-		i++;
+		sort_p_void(total, array, swap, 'a');
+		top_a = last_p_array_void(total, swap);
 	}
-	// TODO: End when finish move all elements to array
-//	if (push_swap_needed(total, array))
-//	{
-//		ft_printf("End :)");
-//		exit (0);
-//	}
 }
 
 void raddixsort(int total, void **array)
@@ -146,6 +102,5 @@ void raddixsort(int total, void **array)
 		counting_sort_bit(total, array, swap, i);
 		i++;
 	}
-	print_indices(total, array);
 	free(swap);
 }

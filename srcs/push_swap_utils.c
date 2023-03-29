@@ -29,6 +29,7 @@ int	push_swap_needed(int total, void **array)
 	return (0);
 }
 
+// TODO: Escrever teste unitário para validar
 void	push_void(int total, void **array, int value, int indice)
 {
 	int	*value_ptr;
@@ -50,6 +51,7 @@ void	push_void(int total, void **array, int value, int indice)
 	array[i] = value_ptr;
 }
 
+// TODO: Escrever teste unitário para validar
 int	*pop_void(int total, void **array)
 {
 	int	i;
@@ -65,6 +67,7 @@ int	*pop_void(int total, void **array)
 	return (value_ptr);
 }
 
+// TODO: Escrever teste unitário para validar
 int	peek_void(int total, void **array)
 {
 	int	i;

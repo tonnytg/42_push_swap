@@ -34,7 +34,7 @@ void	print_indices(int total, void **array)
 	{
 		if (array[i] != NULL) {
 			value_ptr = array[i];
-			ft_printf("Value: %d \t Indice:%d\n", value_ptr[0], value_ptr[1]);
+			ft_printf("Value: %d \t Indice:%d - Bits: %s\n", value_ptr[0], value_ptr[1], ft_char_to_bit(value_ptr[1]));
 		}
 		i++;
 	}
@@ -190,6 +190,7 @@ int	get_max_int_array(int total, void **array)
 // rotate vai ficar responsavel por girar os valores dentro do array
 // é um processo custoso porque precisa jogar o valor em uma variavel temporaria
 // e depois realocar ela
+// TODO: Escrever teste unitário para validar
 void	rotate_array(int total, void **array, char *option)
 {
 	int		i;
@@ -198,6 +199,7 @@ void	rotate_array(int total, void **array, char *option)
 
 	if (ft_strcmp(option, "cw") == 0)
 	{
+		ft_printf("ra\n");
 		top_a = last_p_array_void(total, array);
 		tmp = array[top_a];
 		i = top_a;
@@ -212,6 +214,7 @@ void	rotate_array(int total, void **array, char *option)
 	if (ft_strcmp(option, "ccw") == 0)
 	{
 		top_a = last_p_array_void(total, array);
+		ft_printf("rra\n");
 		tmp = array[0];
 		i = 0;
 		while (i < top_a)
@@ -225,6 +228,7 @@ void	rotate_array(int total, void **array, char *option)
 	exit (1);
 }
 
+// TODO: Escrever teste unitário para validar
 int	last_p_array_void(int total, void **array)
 {
 	int	i;

@@ -29,7 +29,7 @@ int	push_swap_needed(int total, void **array)
 	return (0);
 }
 
-void	push_void(int total, void **array, int value)
+void	push_void(int total, void **array, int value, int indice)
 {
 	int	*value_ptr;
 	int	i;
@@ -46,22 +46,23 @@ void	push_void(int total, void **array, int value)
 	}
 	value_ptr = malloc(sizeof(int) * 2);
 	value_ptr[0] = value;
+	value_ptr[1] = indice;
 	array[i] = value_ptr;
 }
 
-int	pop_void(int total, void **array)
+int	*pop_void(int total, void **array)
 {
 	int	i;
-	int	top;
+	int *value_ptr;
 
 	i = 0;
 	while (array[i] != NULL && i < total)
 	{
 		i++;
 	}
-	top = *(int *)array[i - 1];
+	value_ptr = array[i - 1];
 	array[i - 1] = NULL;
-	return (top);
+	return (value_ptr);
 }
 
 int	peek_void(int total, void **array)

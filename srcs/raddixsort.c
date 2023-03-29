@@ -122,6 +122,12 @@ void counting_sort_bit(int total, void **array, void **swap, int bit)
 		}
 		i++;
 	}
+	// TODO: End when finish move all elements to array
+//	if (push_swap_needed(total, array))
+//	{
+//		ft_printf("End :)");
+//		exit (0);
+//	}
 }
 
 void raddixsort(int total, void **array)

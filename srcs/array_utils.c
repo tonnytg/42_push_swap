@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+// import to work with uint32_t
+#include <stdint.h>
 
 void	set_erease_void(int total, void **array)
 {
@@ -84,11 +86,12 @@ void	change(t_pair *x, t_pair *y)
 	*y = temp;
 }
 
-int	partition(t_pair *pairs, int left, int right)
+int	partition(t_pair *pairs, uint32_t left, uint32_t right)
 {
-	int	pivot;
-	int	i;
-	int	j;
+	uint32_t	pivot;
+	uint32_t	i;
+	uint32_t	j;
+
 
 	pivot = pairs[right].value;
 	i = left - 1;
@@ -106,9 +109,10 @@ int	partition(t_pair *pairs, int left, int right)
 	return (i + 1);
 }
 
-void	quicksort(t_pair *pairs, int left, int right)
+void	quicksort(t_pair *pairs, uint32_t left, uint32_t right)
 {
-	int	pivot;
+	uint32_t	pivot;
+
 
 	if (left < right)
 	{
@@ -116,6 +120,7 @@ void	quicksort(t_pair *pairs, int left, int right)
 		quicksort(pairs, left, pivot - 1);
 		quicksort(pairs, pivot + 1, right);
 	}
+	ft_printf("check5\n");
 }
 
 void	set_array_indice(int size, void **array)
@@ -123,6 +128,7 @@ void	set_array_indice(int size, void **array)
 	int		i;
 	int		*vector;
 	t_pair	*pairs;
+
 
 	vector = NULL;
 	pairs = malloc(size * sizeof(t_pair));
@@ -136,12 +142,14 @@ void	set_array_indice(int size, void **array)
 	}
 	quicksort(pairs, 0, size - 1);
 	i = 0;
+
 	while (i < size)
 	{
 		vector = array[pairs[i].indice];
 		vector[1] = i;
 		i++;
 	}
+
 	free(pairs);
 }
 

@@ -15,6 +15,7 @@
 int	push_swap_needed(int total, void **array)
 {
 	int	i;
+	ft_printf("total: %d, array: %p", total, array);
 
 	i = 0;
 	while (i < total - 1)
@@ -49,6 +50,7 @@ void	push_void(int total, void **array, int value, int indice)
 	value_ptr[0] = value;
 	value_ptr[1] = indice;
 	array[i] = value_ptr;
+	ft_printf("check2\n");
 }
 
 // TODO: Escrever teste unitário para validar

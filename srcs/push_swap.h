@@ -19,8 +19,8 @@
 
 typedef struct s_pair
 {
-	int	value;
-	int	indice;
+	uint32_t	value;
+	uint32_t	indice;
 }	t_pair;
 
 int		check_values(int total, char **values);

@@ -94,7 +94,6 @@ void counting_sort_bit(int total, void **array, void **swap, int bit)
 {
 	int i;
 	int *value_ptr;
-	int *value_ptr2;
 	int top_a;
 
 	i = 0;
@@ -110,10 +109,7 @@ void counting_sort_bit(int total, void **array, void **swap, int bit)
 		}
 		else
 		{
-			top_a = last_p_array_void(total, array);
-			value_ptr2 = array[top_a];
-			if (top_a > 0 && (value_ptr[1] < value_ptr2[1]))
-				rotate_array(total, array, "cw");
+			rotate_array(total, array, "cw");
 			if (push_swap_needed(total, array) == 1)
 				break ;
 		}

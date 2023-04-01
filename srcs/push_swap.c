@@ -19,6 +19,7 @@ void	push_all_values(int total, void **array, char **argv)
 	i = total;
 	while (i >= 1)
 	{
+		ft_printf("check1\n");
 		push_void(total, array, ft_atoi(argv[i]), 0);
 		i--;
 	}
@@ -31,18 +32,16 @@ void	push_swap(int argc, char **argv)
 
 	total = argc - 1;
 	stack_a = new_array_void(total);
+	ft_printf("check\n");
 	push_all_values(total, stack_a, argv);
 	reset_array_indice(total, stack_a);
-	if (has_duplicates(total, stack_a))
+
+	set_array_indice(total, stack_a);
+
+	ft_printf("check4\n");
+	if (push_swap_needed(total, stack_a))
 	{
-		ft_printf("Error\n");
-	}
-	else
-	{
-		if (push_swap_needed(total, stack_a)) {
-			set_array_indice(total, stack_a);
-			ft_sort_void(total, stack_a);
-		}
+		ft_sort_void(total, stack_a);
 	}
 	set_erease_void(total, stack_a);
 	free(stack_a);

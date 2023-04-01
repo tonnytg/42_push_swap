@@ -86,11 +86,11 @@ void	change(t_pair *x, t_pair *y)
 	*y = temp;
 }
 
-int	partition(t_pair *pairs, int64_t left, int64_t right)
+int	partition(t_pair *pairs, uint32_t left, uint32_t right)
 {
-	int64_t	pivot;
-	int64_t	i;
-	int64_t	j;
+	uint32_t	pivot;
+	uint32_t	i;
+	uint32_t	j;
 
 
 	pivot = pairs[right].value;
@@ -109,9 +109,10 @@ int	partition(t_pair *pairs, int64_t left, int64_t right)
 	return (i + 1);
 }
 
-void	quicksort(t_pair *pairs, int64_t left, int64_t right)
+void	quicksort(t_pair *pairs, uint32_t left, uint32_t right)
 {
-	int64_t	pivot;
+	uint32_t	pivot;
+
 
 	if (left < right)
 	{
@@ -119,6 +120,7 @@ void	quicksort(t_pair *pairs, int64_t left, int64_t right)
 		quicksort(pairs, left, pivot - 1);
 		quicksort(pairs, pivot + 1, right);
 	}
+	ft_printf("check5\n");
 }
 
 void	set_array_indice(int size, void **array)

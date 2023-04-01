@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-// import to work with uint32_t
-#include <stdint.h>
 
 void	set_erease_void(int total, void **array)
 {
@@ -120,7 +118,6 @@ void	quicksort(t_pair *pairs, uint32_t left, uint32_t right)
 		quicksort(pairs, left, pivot - 1);
 		quicksort(pairs, pivot + 1, right);
 	}
-	ft_printf("check5\n");
 }
 
 void	set_array_indice(int size, void **array)
@@ -195,10 +192,6 @@ int	get_max_int_array(int total, void **array)
 	return (max);
 }
 
-// rotate vai ficar responsavel por girar os valores dentro do array
-// é um processo custoso porque precisa jogar o valor em uma variavel temporaria
-// e depois realocar ela
-// TODO: Escrever teste unitário para validar
 void	rotate_array(int total, void **array, char *option)
 {
 	int		i;
@@ -236,7 +229,6 @@ void	rotate_array(int total, void **array, char *option)
 	exit (1);
 }
 
-// TODO: Escrever teste unitário para validar
 int	last_p_array_void(int total, void **array)
 {
 	int	i;

@@ -23,7 +23,6 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (1);
 	}
-	ft_printf("init\n");
 	push_swap(argc, argv);
 	return (0);
 }

@@ -49,23 +49,6 @@ int	get_count_bit(int value)
 	return (count);
 }
 
-//int	push_swap_needed(int total, void **array)
-//{
-//	int	i;
-//
-//	i = 0;
-//	while (i < total - 1)
-//	{
-//		if (array[i] != NULL && array[i + 1] != NULL)
-//		{
-//			if (*(int *)array[i] < *(int *)array[i + 1])
-//				return (1);
-//		}
-//		i++;
-//	}
-//	return (0);
-//}
-
 int is_sorted(int total, void **array)
 {
 	int i;
@@ -78,11 +61,11 @@ int is_sorted(int total, void **array)
 
 		if (value_ptr1[1] > value_ptr2[1])
 		{
-			return 0; // Retorna 0 (falso) se os elementos não estiverem em ordem crescente
+			return (0);
 		}
 		i++;
 	}
-	return 1; // Retorna 1 (verdadeiro) se a pilha estiver ordenada
+	return (1);
 }
 
 int get_bit(int value, int bit)
@@ -142,22 +125,3 @@ void raddixsort(int total, void **array)
 	}
 	free(swap);
 }
-
-//void raddixsort(int total, void **array)
-//{
-//	void **swap;
-//	int max;
-//	int num_bits;
-//	int i;
-//
-//	swap = new_array_void(total);
-//	max = get_max_indice(total, array);
-//	num_bits = get_count_bit(max);
-//	i = 0;
-//	while (i < num_bits)
-//	{
-//		counting_sort_bit(total, array, swap, i);
-//		i++;
-//	}
-//	free(swap);
-//}

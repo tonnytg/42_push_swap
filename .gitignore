@@ -1,2 +1,5 @@
+*.o
+push_swap
+libft.a
 .DS_Store
 .idea

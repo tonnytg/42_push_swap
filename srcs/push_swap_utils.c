@@ -12,10 +12,28 @@
 
 #include "push_swap.h"
 
-int	push_swap_needed(int total, void **array)
+int has_duplicates(int total, void **array)
 {
-	int	i;
-	ft_printf("total: %d, array: %p", total, array);
+	int i, j;
+
+	i = 0;
+	while (i < total)
+	{
+		j = i + 1;
+		while (j < total)
+		{
+			if (*(int *)array[i] == *(int *)array[j])
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
+int push_swap_needed(int total, void **array)
+{
+	int i;
 
 	i = 0;
 	while (i < total - 1)
@@ -50,7 +68,6 @@ void	push_void(int total, void **array, int value, int indice)
 	value_ptr[0] = value;
 	value_ptr[1] = indice;
 	array[i] = value_ptr;
-	ft_printf("check2\n");
 }
 
 // TODO: Escrever teste unitário para validar

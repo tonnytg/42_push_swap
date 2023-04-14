@@ -90,7 +90,7 @@ int	partition(t_pair *pairs, uint32_t left, uint32_t right)
 	uint32_t	i;
 	uint32_t	j;
 
-
+	// TODO: Bug bad access with 2 1 3 elements
 	pivot = pairs[right].value;
 	i = left - 1;
 	j = left;

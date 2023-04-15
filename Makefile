@@ -32,6 +32,7 @@ $(NAME): $(OBJS)
 	$(CC) $(CC_ARGS) $(OBJS) -L $(LIBS) -lft -o $(NAME)
 
 %.o: %.c
+	mkdir -p libs
 	make -C libft
 	cp -a libft/libft.h ./includes/
 	cp -a libft/libft.a ./libs/

@@ -22,7 +22,7 @@ jobs:
     - name: Update
       run: sudo apt update
     - name: Install Packages
-      run: sudo apt install meson ninja libcriterion-dev -y
+      run: sudo apt install meson libcriterion-dev -y
     - name: Clone Criterion
       run: git clone --recursive https://github.com/Snaipe/Criterion      
     - name: Copile Criterion 1

@@ -17,7 +17,7 @@ jobs:
       run: sudo apt update
     - name: Install Packages
       run: sudo apt install meson libcriterion-dev -y
-    - name: make test
-      run: make test
     - name: make
       run: make
+    - name: make test
+      run: make test      

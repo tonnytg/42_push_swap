@@ -1,0 +1,23 @@
+name: Valid all tests
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Update
+      run: sudo apt update
+    - name: Install Packages
+      run: sudo apt install meson libcriterion-dev -y
+    - name: make
+      run: make
+    - name: make test
+      run: make test      

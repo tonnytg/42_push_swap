@@ -24,28 +24,24 @@ FILES 	= \
 OBJS  	= $(FILES:.c=.o)
 CC 		= gcc
 CC_ARGS = -Wextra -Wall -Werror
+LIBS	= libs
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CC_ARGS) $(OBJS) srcs/libft.a -o $(NAME)
+	$(CC) $(CC_ARGS) $(OBJS) -L $(LIBS) -lft -o $(NAME)
 
 %.o: %.c
 	make -C libft
-	cp -a libft/libft.h srcs/
-	cp -a libft/libft.a srcs/
+	cp -a libft/libft.h ./includes/
+	cp -a libft/libft.a ./libs/
 	gcc $(CC_ARGS) -c $< -o $@
 
-debug:
-	$(CC) $(CC_ARGS) -g $(FILES) srcs/libft.a -o srcs/$(NAME)
-
-#Run all files with *_test.c
 test:
-	mkdir -p tests
-	gcc srcs/check_values_test.c srcs/check_values.c srcs/push_swap.h srcs/libft.a -lcunit
+	make -C tests
 
-
-
+debug:
+	$(CC) $(CC_ARGS) -g $(FILES) -L $(LIBS) -lft -o srcs/$(NAME)
 
 clean:
 	make -C libft clean

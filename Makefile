@@ -39,6 +39,14 @@ $(NAME): $(OBJS)
 debug:
 	$(CC) $(CC_ARGS) -g $(FILES) srcs/libft.a -o srcs/$(NAME)
 
+#Run all files with *_test.c
+test:
+	mkdir -p tests
+	gcc srcs/check_values_test.c srcs/check_values.c srcs/push_swap.h srcs/libft.a -lcunit
+
+
+
+
 clean:
 	make -C libft clean
 	rm $(OBJS)

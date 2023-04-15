@@ -46,6 +46,7 @@ clean:
 fclean: clean
 	make -C libft fclean
 	rm push_swap
+	rm srcs/libft.*
 
 re: fclean all
 

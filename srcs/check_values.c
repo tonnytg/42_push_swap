@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
-int	check_values(int total, char **values)
+int	check_values(int argc, char **argv)
 {
 	int	i;
 
-	if (total < 2)
+	if (argc < 2)
 		return (1);
-	i = 1;
-	while (i < total)
+	i = 0;
+	while (i < argc)
 	{
-		if (!ft_strisdigit(values[i])
-			&& !(values[i][0] == '-'
-			&& ft_strisdigit(&values[i][1])))
+		if (!ft_strisdigit(argv[i])
+			&& !(argv[i][0] == '-'
+			&& ft_strisdigit(&argv[i][1])))
 			return (1);
 		i++;
 	}

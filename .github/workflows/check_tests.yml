@@ -13,6 +13,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Clone Criterion
+      run: git clone --recursive https://github.com/Snaipe/Criterion
+    - name: Install Packages
+      run: sudo apt install meson ninja libcriterion-dev -y
+    - name: Copile Criterion 1
+      run: sudo meson build 
+    - name: Copile Criterion 2
+      run: sudo ninja -C build    
     - name: make test
       run: make test
     - name: make

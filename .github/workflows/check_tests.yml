@@ -13,20 +13,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Download file
-      run: sudo wget -qO /usr/local/bin/ninja.gz https://github.com/ninja-build/ninja/releases/latest/download/ninja-linux.zip
-    - name: Unzip
-      run: sudo gunzip /usr/local/bin/ninja.gz
-    - name: Set execute permission
-      run: sudo chmod a+x /usr/local/bin/ninja
     - name: Update
       run: sudo apt update
     - name: Install Packages
-      run: sudo apt install meson libcriterion-dev -y     
-    - name: Copile Criterion 1
-      run: sudo meson build 
-    - name: Copile Criterion 2
-      run: sudo ninja -C build    
+      run: sudo apt install meson libcriterion-dev -y
     - name: make test
       run: make test
     - name: make

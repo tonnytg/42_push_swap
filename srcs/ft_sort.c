@@ -31,9 +31,6 @@ void ft_sort_three_void(int total, void **array)
 			sort_s_void(total, array, NULL, 'a');
 		i++;
 	}
-
-
-
 }
 
 void	ft_sort_void(int total, void **array)

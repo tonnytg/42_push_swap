@@ -15,13 +15,12 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdint.h>
 # include "libft.h"
 
 typedef struct s_pair
 {
-	uint32_t	value;
-	uint32_t	indice;
+	long int	value;
+	long int	indice;
 }	t_pair;
 
 int		check_values(int total, char **values);
@@ -46,4 +45,5 @@ void	raddixsort(int total, void **array);
 void	reset_array_indice(int total, void **array);
 void	set_array_indice(int size, void **array);
 void	print_indices(int total, void **array);
+int		get_max_indice(int total, void **array);
 #endif

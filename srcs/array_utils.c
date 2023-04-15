@@ -84,11 +84,11 @@ void	change(t_pair *x, t_pair *y)
 	*y = temp;
 }
 
-int	partition(t_pair *pairs, uint32_t left, uint32_t right)
+int	partition(t_pair *pairs, long int left, long int right)
 {
-	uint32_t	pivot;
-	uint32_t	i;
-	uint32_t	j;
+	long int	pivot;
+	long int	i;
+	long int	j;
 
 	// TODO: Bug bad access with 2 1 3 elements
 	pivot = pairs[right].value;
@@ -107,9 +107,9 @@ int	partition(t_pair *pairs, uint32_t left, uint32_t right)
 	return (i + 1);
 }
 
-void	quicksort(t_pair *pairs, uint32_t left, uint32_t right)
+void	quicksort(t_pair *pairs, long int left, long int right)
 {
-	uint32_t	pivot;
+	long int	pivot;
 
 
 	if (left < right)
@@ -125,7 +125,6 @@ void	set_array_indice(int size, void **array)
 	int		i;
 	int		*vector;
 	t_pair	*pairs;
-
 
 	vector = NULL;
 	pairs = malloc(size * sizeof(t_pair));
@@ -146,7 +145,6 @@ void	set_array_indice(int size, void **array)
 		vector[1] = i;
 		i++;
 	}
-
 	free(pairs);
 }
 

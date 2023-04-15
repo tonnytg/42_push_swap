@@ -40,7 +40,7 @@ void	print_array(int *array, int total)
 	i = 0;
 	while (i < total)
 	{
-		printf("[%d] - %d\n", i, array[i]);
+		ft_printf("[%d] - %d\n", i, array[i]);
 		i++;
 	}
 }

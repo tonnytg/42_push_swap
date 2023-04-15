@@ -92,7 +92,7 @@ void counting_sort_bit(int total, void **array, void **swap, int bit)
 		}
 		else
 		{
-			rotate_array(total, array, "cw");
+			rotate_array(total, array, "ccw");
 			if (push_swap_needed(total, array) == 1)
 				break ;
 		}

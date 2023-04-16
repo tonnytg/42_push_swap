@@ -15,7 +15,7 @@ HEADER 	= $(NAME).h
 FILES 	= \
 			srcs/check_values.c \
 			srcs/array_utils.c \
-			srcs/push_swap_utils.c \
+			srcs/stack_utils.c \
 			srcs/push_swap.c \
 			srcs/ft_sort_utils.c \
 			srcs/ft_sort.c \

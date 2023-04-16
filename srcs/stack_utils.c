@@ -12,24 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-int	push_swap_needed(int total, void **array)
-{
-	int	i;
-
-	i = 0;
-	while (i < total - 1)
-	{
-		if (array[i] != NULL && array[i + 1] != NULL)
-		{
-			if (*(int *)array[i] < *(int *)array[i + 1])
-				return (1);
-		}
-		i++;
-	}
-	return (0);
-}
-
-// TODO: Escrever teste unitário para validar
 void	push_void(int total, void **array, int value, int indice)
 {
 	int	*value_ptr;
@@ -51,7 +33,6 @@ void	push_void(int total, void **array, int value, int indice)
 	array[i] = value_ptr;
 }
 
-// TODO: Escrever teste unitário para validar
 int	*pop_void(int total, void **array)
 {
 	int	i;
@@ -67,17 +48,16 @@ int	*pop_void(int total, void **array)
 	return (value_ptr);
 }
 
-// TODO: Escrever teste unitário para validar
-int	peek_void(int total, void **array)
+int	*peek_void(int total, void **array)
 {
 	int	i;
-	int	top;
+	int	*value_ptr;
 
 	i = 0;
 	while (array[i] != NULL && i < total)
 	{
 		i++;
 	}
-	top = *(int *)array[i - 1];
-	return (top);
+	value_ptr = array[i - 1];
+	return (value_ptr);
 }

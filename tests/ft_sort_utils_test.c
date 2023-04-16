@@ -68,7 +68,6 @@ Test(sort_s_void, passing) {
 	stack[0] = value_ptr;
 	stack[1] = value_ptr1;
 	stack[2] = value_ptr2;
-	stack[3] = NULL;
 
 	sort_s_void(3, stack, NULL, 'a');
 	free(value_ptr);

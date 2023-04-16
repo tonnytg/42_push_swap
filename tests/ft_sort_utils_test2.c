@@ -97,7 +97,6 @@ Test(sort_rr_void, passing) {
 	stack[0] = value_ptr;
 	stack[1] = value_ptr1;
 	stack[2] = value_ptr2;
-	stack[3] = NULL;
 
 	sort_rr_void(3, stack, NULL, 'a');
 

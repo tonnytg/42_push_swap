@@ -1,7 +1,7 @@
 #include <criterion/criterion.h>
 
 extern int	*pop_void(int total, void **array);
-extern void	push_void(int total, void **array, int value, int indice);
+extern int	push_void(int total, void **array, int value, int index);
 extern int	*peek_void(int total, void **array);
 
 Test(pop_void, passing) {
@@ -41,10 +41,11 @@ Test(push_void, passing) {
 	value_ptr1[0] = 1;
 	value_ptr1[1] = 1;
 
-
 	stack[0] = value_ptr;
 	stack[1] = value_ptr1;
-	push_void(3, stack, 2, 2);
+
+	int result = push_void(3, stack, 2, 2);
+	cr_assert_eq(result, 1);
 	stack[3] = NULL;
 
 	int *value = pop_void(3, stack);

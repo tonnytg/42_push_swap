@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	push_void(int total, void **array, int value, int indice)
+int	push_void(int total, void **array, int value, int index)
 {
 	int	*value_ptr;
 	int	i;
@@ -23,14 +23,12 @@ void	push_void(int total, void **array, int value, int indice)
 		i++;
 	}
 	if (i == total)
-	{
-		ft_printf("Panic, array it is full");
-		exit (1);
-	}
+		return (0);
 	value_ptr = malloc(sizeof(int) * 2);
 	value_ptr[0] = value;
-	value_ptr[1] = indice;
+	value_ptr[1] = index;
 	array[i] = value_ptr;
+	return (1);
 }
 
 int	*pop_void(int total, void **array)

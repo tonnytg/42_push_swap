@@ -28,8 +28,8 @@ typedef struct s_pair
 }	t_pair;
 
 int		check_values(int total, char **values);
-void	push_swap(int argc, char **argv);
 int		push_swap_needed(int total, void **array);
+void	push_swap(int argc, char **argv);
 void	*new_array_void(int total);
 void	set_clean_void(int total, void **array);
 void	print_array_void(int total, void **array, void **swap);
@@ -39,7 +39,7 @@ void	set_erease_void(int total, void **array);
 void	push_all_values(int total, void **array, char **argv);
 void	push_void(int total, void **array, int value, int indice);
 int		*pop_void(int total, void **array);
-void	ft_sort(int total, int *array);
+int		*peek_void(int total, void **array);
 void	ft_sort_void(int total, void **array);
 int		sort_s_void(int total, void **array, void **swap, char c);
 int		sort_r_void(int total, void **array, void **swap, char c);

@@ -12,8 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-// TODO: Realizar os ajustes para limpeza de memória
-
 int	main(int argc, char **argv)
 {
 	if (argc == 1)

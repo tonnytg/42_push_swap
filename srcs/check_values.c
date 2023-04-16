@@ -12,13 +12,30 @@
 
 #include "../includes/push_swap.h"
 
+int	push_swap_needed(int total, void **array)
+{
+	int	i;
+
+	i = 0;
+	while (i < total - 1)
+	{
+		if (array[i] != NULL && array[i + 1] != NULL)
+		{
+			if (*(int *)array[i] < *(int *)array[i + 1])
+				return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	check_values(int argc, char **argv)
 {
 	int	i;
 
 	if (argc < 2)
 		return (1);
-	i = 0;
+	i = 1;
 	while (i < argc)
 	{
 		if (!ft_strisdigit(argv[i])

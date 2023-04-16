@@ -48,16 +48,19 @@ int	sort_r_void(int total, void **array, void **swap, char c)
 {
 	if (c == 'a')
 	{
+		ft_printf("r%c\n", c);
 		rotate_array(total, array, "cw");
 		return (0);
 	}
 	if (c == 'b')
 	{
+		ft_printf("r%c\n", c);
 		rotate_array(total, swap, "cw");
 		return (0);
 	}
 	if (c == 'r')
 	{
+		ft_printf("r%c\n", c);
 		rotate_array(total, array, "cw");
 		rotate_array(total, swap, "cw");
 		return (0);
@@ -70,20 +73,20 @@ int	sort_rr_void(int total, void **array, void **swap, char c)
 	if (c == 'a')
 	{
 		ft_printf("rr%c\n", c);
-		rotate_array(total, array, "cw");
+		rotate_array(total, array, "ccw");
 		return (0);
 	}
 	if (c == 'b')
 	{
 		ft_printf("rr%c\n", c);
-		rotate_array(total, swap, "cw");
+		rotate_array(total, swap, "ccw");
 		return (0);
 	}
 	if (c == 'r')
 	{
 		ft_printf("rr%c\n", c);
-		rotate_array(total, array, "cw");
-		rotate_array(total, swap, "cw");
+		rotate_array(total, array, "ccw");
+		rotate_array(total, swap, "ccw");
 		return (0);
 	}		
 	return (1);

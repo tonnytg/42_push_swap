@@ -30,7 +30,7 @@ Test(pop_void, passing) {
 
 Test(push_void, passing) {
 
-	void **stack = malloc(sizeof(void *) * 3);
+	void **stack = malloc(sizeof(void *) * 4);
 
 	int *value_ptr = malloc(sizeof(int) * 2);
 	value_ptr[0] = 0;
@@ -52,7 +52,7 @@ Test(push_void, passing) {
 
 Test(peek_void, passing) {
 
-	void **stack = malloc(sizeof(void *) * 3);
+	void **stack = malloc(sizeof(void *) * 4);
 
 	int *value_ptr = malloc(sizeof(int) * 2);
 	value_ptr[0] = 0;

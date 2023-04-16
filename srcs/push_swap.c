@@ -33,7 +33,7 @@ void	push_swap(int argc, char **argv)
 	stack_a = new_array_void(total);
 	push_all_values(total, stack_a, argv);
 	reset_array_indice(total, stack_a);
-	set_array_indice(total, stack_a); // Tem problema
+	set_array_indice(total, stack_a);
 	if (push_swap_needed(total, stack_a))
 	{
 		ft_sort_void(total, stack_a);

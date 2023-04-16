@@ -37,7 +37,7 @@ int		last_p_array_void(int total, void **array);
 void    rotate_array(int total, void **array, char *option);
 void	set_erease_void(int total, void **array);
 void	push_all_values(int total, void **array, char **argv);
-void	push_void(int total, void **array, int value, int indice);
+int		push_void(int total, void **array, int value, int index);
 int		*pop_void(int total, void **array);
 int		*peek_void(int total, void **array);
 void	ft_sort_void(int total, void **array);

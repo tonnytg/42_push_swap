@@ -137,3 +137,29 @@ result = push_swap_needed(total, array);
 expected = 1;
 cr_assert_eq(result, expected);
 }
+
+Test(push_swap_needed, failing3) {
+
+	int result, expected;
+	int total = 3;
+	void **array;
+	int value_ptr1 = 1;
+	int value_ptr2 = 3;
+	int value_ptr3 = -2;
+
+	array = new_array_void(total);
+
+	array[0] = &value_ptr1;
+	array[1] = &value_ptr2;
+	array[2] = &value_ptr3;
+	// -2 3 1 -> input need sort
+	// -2 1 3 -> output
+
+	cr_assert_eq(*(int *)array[0], 1);
+	cr_assert_eq(*(int *)array[1], 3);
+	cr_assert_eq(*(int *)array[2], -2);
+
+	result = push_swap_needed(total, array);
+	expected = 0;
+	cr_assert_eq(result, expected);
+}

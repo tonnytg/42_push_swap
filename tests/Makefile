@@ -24,6 +24,10 @@ clean:
 	rm push_swap_needed_test
 	rm array_utils_test
 	rm stack_utils
+	rm ft_sort_utils_test
+	rm ft_sort_utils_test1
+	rm ft_sort_utils_test2
+
 
 re: clean all
 

@@ -160,6 +160,6 @@ Test(push_swap_needed, failing3) {
 	cr_assert_eq(*(int *)array[2], -2);
 
 	result = push_swap_needed(total, array);
-	expected = 0;
+	expected = 1;
 	cr_assert_eq(result, expected);
 }

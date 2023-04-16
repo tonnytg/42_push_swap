@@ -38,7 +38,7 @@ $(NAME): $(OBJS)
 	cp -a libft/libft.a ./libs/
 	gcc $(CC_ARGS) -c $< -o $@
 
-test:
+test: all
 	@make -C tests
 
 debug:

@@ -23,7 +23,6 @@ Test(pop_void, passing) {
 	stack[0] = value_ptr;
 	stack[1] = value_ptr1;
 	stack[2] = value_ptr2;
-	stack[3] = NULL;
 
 	int *value = pop_void(3, stack);
 	cr_assert_eq(value[0], 2);
@@ -46,7 +45,6 @@ Test(push_void, passing) {
 
 	int result = push_void(3, stack, 2, 2);
 	cr_assert_eq(result, 1);
-	stack[3] = NULL;
 
 	int *value = pop_void(3, stack);
 	cr_assert_eq(value[0], 2);
@@ -67,7 +65,6 @@ Test(peek_void, passing) {
 	stack[0] = value_ptr;
 	stack[1] = value_ptr1;
 	push_void(3, stack, 2, 2);
-	stack[3] = NULL;
 
 	int *value = peek_void(3, stack);
 	cr_assert_eq(value[0], 2);

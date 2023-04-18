@@ -46,6 +46,7 @@ int		sort_r_void(int total, void **array, void **swap, char c);
 int		sort_rr_void(int total, void **array, void **swap, char c);
 int		sort_p_void(int total, void **array, void **swap, char c);
 void	raddixsort(int total, void **array);
+void	quicksort(t_pair *pairs, long int left, long int right);
 void	reset_array_indice(int total, void **array);
 void	set_array_indice(int size, void **array);
 void	print_indices(int total, void **array);

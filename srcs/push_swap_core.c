@@ -24,6 +24,18 @@ void	push_all_values(int total, void **array, char **argv)
 	}
 }
 
+void	set_erease_void(int total, void **array)
+{
+	int	i;
+
+	i = 0;
+	while (i < total)
+	{
+		array[i] = NULL;
+		i++;
+	}
+}
+
 void	push_swap(int argc, char **argv)
 {
 	void	**stack_a;

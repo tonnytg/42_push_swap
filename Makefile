@@ -13,13 +13,13 @@
 NAME   	= push_swap
 HEADER 	= $(NAME).h
 FILES 	= \
-			srcs/check_values.c \
-			srcs/array_utils.c \
-			srcs/stack_utils.c \
-			srcs/push_swap.c \
-			srcs/ft_sort_utils.c \
-			srcs/ft_sort.c \
-			srcs/raddixsort.c \
+			srcs/stack_array_utils.c \
+			srcs/stack_array_core.c \
+			srcs/sort_array_utils2.c \
+			srcs/sort_array_utils.c \
+			srcs/sort_array_core.c \
+			srcs/push_swap_utils.c \
+			srcs/push_swap_core.c \
 			srcs/main.c
 OBJS  	= $(FILES:.c=.o)
 CC 		= gcc
@@ -30,6 +30,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CC) $(CC_ARGS) $(OBJS) -L $(LIBS) -lft -o $(NAME)
+	ar rsc $(LIBS)/lib$(NAME).a $(OBJS)
 
 %.o: %.c
 	mkdir -p libs
@@ -51,7 +52,7 @@ clean:
 fclean: clean
 	make -C libft fclean
 	rm push_swap
-	rm srcs/libft.*
+	rm $(LIBS)/libft.*
 
 re: fclean all
 

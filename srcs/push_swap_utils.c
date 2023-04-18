@@ -42,6 +42,8 @@ int	check_values(int argc, char **argv)
 			&& !(argv[i][0] == '-'
 			&& ft_strisdigit(&argv[i][1])))
 			return (1);
+		if (argv[i][0] == '-' && !ft_isdigit(argv[i][1]))
+			return (1);
 		i++;
 	}
 	return (0);

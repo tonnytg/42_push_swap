@@ -3,31 +3,30 @@ SRCS	= ../srcs
 
 all: tests
 
+lib:
+	gcc -o push_swap_test core_test.c -L ../libs -lft -L ../libs -lpush_swap -lcriterion
+
 tests:
-	@gcc -o check_values_test check_values_test.c $(SRCS)/check_values.c -L $(LIBS) -lft -lcriterion
-	./check_values_test
-	@gcc -o push_swap_needed_test push_swap_needed_test.c $(SRCS)/check_values.c -L $(LIBS) -lft -lcriterion
-	./push_swap_needed_test
-	@gcc -o array_utils_test array_utils_test.c $(SRCS)/array_utils.c -L $(LIBS) -lft -lcriterion
-	./array_utils_test
-	@gcc -o stack_utils_test stack_utils_test.c $(SRCS)/stack_utils.c -L $(LIBS) -lft -lcriterion
-	./stack_utils_test
-	@gcc -o ft_sort_utils_test ft_sort_utils_test.c -L $(LIBS) -lft -lcriterion
-	./ft_sort_utils_test
-	@gcc -o ft_sort_utils_test1 ft_sort_utils_test1.c -L $(LIBS) -lft -lcriterion
-	./ft_sort_utils_test1
-	@gcc -o ft_sort_utils_test2 ft_sort_utils_test2.c -L $(LIBS) -lft -lcriterion
-	./ft_sort_utils_test2
+	@gcc -o push_swap_utils_test push_swap_utils_test.c $(SRCS)/push_swap_utils.c -L $(LIBS) -lft -lcriterion
+	@./push_swap_utils_test
+	@gcc -o stack_array_utils_test stack_array_utils_test.c $(SRCS)/stack_array_utils.c -L $(LIBS) -lft -lcriterion
+	@./stack_array_utils_test
+	@gcc -o stack_array_core_test stack_array_core_test.c $(SRCS)/stack_array_core.c -L $(LIBS) -lft -lcriterion
+	@./stack_array_core_test
+	@gcc -o sort_utils_test sort_array_utils_test.c -L $(LIBS) -lft -lcriterion
+	@./sort_utils_test
+	@gcc -o sort_utils_test1 sort_array_utils_test1.c -L $(LIBS) -lft -lcriterion
+	@./sort_utils_test1
+	@gcc -o sort_utils_test2 sort_array_utils_test2.c -L $(LIBS) -lft -lcriterion
+	@./sort_utils_test2
 
 clean:
-	rm check_values_test
-	rm push_swap_needed_test
-	rm array_utils_test
-	rm stack_utils
-	rm ft_sort_utils_test
-	rm ft_sort_utils_test1
-	rm ft_sort_utils_test2
-
+	rm push_swap_utils_test
+	rm stack_array_utils_test
+	rm stack_array_core_test
+	rm sort_utils_test
+	rm sort_utils_test1
+	rm sort_utils_test2
 
 re: clean all
 

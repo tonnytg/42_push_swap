@@ -34,7 +34,7 @@ int	push_void(int total, void **array, int value, int index)
 int	*pop_void(int total, void **array)
 {
 	int	i;
-	int *value_ptr;
+	int	*value_ptr;
 
 	i = 0;
 	while (array[i] != NULL && i < total)

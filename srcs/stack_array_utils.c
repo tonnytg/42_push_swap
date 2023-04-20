@@ -12,6 +12,7 @@
 
 #include "../includes/push_swap.h"
 
+// TODO: Avaliar se tem como retornar um ponteiro de ponteiro
 void	*new_array_void(int total)
 {
 	void	**array;
@@ -19,9 +20,9 @@ void	*new_array_void(int total)
 
 	array = malloc(total * sizeof(void *));
 	i = 0;
+	// TODO: usar ft_caloc
 	while (i < total)
 	{
-		free(array[i]);
 		array[i] = NULL;
 		i++;
 	}

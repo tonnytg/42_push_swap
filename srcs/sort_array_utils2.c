@@ -65,15 +65,17 @@ void ft_sort_three_void(int total, void **array)
 	int i;
 
 	i = 0;
-	while (i < 2) {
+	while (i < total) {
 		value_ptr1 = array[0];
 		value_ptr2 = array[1];
 		value_ptr3 = array[2];
 
-		if (value_ptr3[1] > value_ptr1[1])
-			sort_r_void(total, array, NULL, 'a');
-		else if (value_ptr3[1] > value_ptr2[1])
+		if (value_ptr3[1] > value_ptr2[1]) {
 			sort_s_void(total, array, NULL, 'a');
+		}
+		if (value_ptr1[1] < value_ptr3[1]) {
+			sort_rr_void(total, array, NULL, 'a');
+		}
 		i++;
 	}
 }
@@ -102,7 +104,6 @@ void	rotate_array(int total, void **array, char *option)
 
 	if (ft_strcmp(option, "cw") == 0)
 	{
-		ft_printf("ra\n");
 		top_a = last_p_array_void(total, array);
 		tmp = array[top_a];
 		i = top_a;
@@ -117,7 +118,6 @@ void	rotate_array(int total, void **array, char *option)
 	if (ft_strcmp(option, "ccw") == 0)
 	{
 		top_a = last_p_array_void(total, array);
-		ft_printf("rra\n");
 		tmp = array[0];
 		i = 0;
 		while (i < top_a)

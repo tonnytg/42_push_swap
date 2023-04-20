@@ -15,16 +15,18 @@
 int	push_swap_needed(int total, void **array)
 {
 	int	i;
+	int *value_ptr1;
+	int *value_ptr2;
 
-	i = 0;
-	while (i < total - 1)
-	{
-		if (array[i] != NULL && array[i + 1] != NULL)
-		{
-			if (*(int *)array[i] < *(int *)array[i + 1])
+	i = total - 1;
+	while (i > 0) {
+		if (array[i] != NULL && array[i - 1] != NULL) {
+			value_ptr1 = array[i];
+			value_ptr2 = array[i - 1];
+			if ( value_ptr1[1] < value_ptr2[1])
 				return (1);
 		}
-		i++;
+		i--;
 	}
 	return (0);
 }

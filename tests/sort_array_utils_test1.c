@@ -34,7 +34,7 @@ void	rotate_array(int total, void **array, char *option)
 		array[0] = tmp;
 		return ;
 	}
-	if (strcmp(option, "ccw") == 0)
+	else if (strcmp(option, "ccw") == 0)
 	{
 		top_a = last_p_array_void(total, array);
 		tmp = array[0];
@@ -57,12 +57,12 @@ int	sort_r_void(int total, void **array, void **swap, char c)
 		rotate_array(total, array, "cw");
 		return (0);
 	}
-	if (c == 'b')
+	else if (c == 'b')
 	{
 		rotate_array(total, swap, "cw");
 		return (0);
 	}
-	if (c == 'r')
+	else if (c == 'r')
 	{
 		rotate_array(total, array, "cw");
 		rotate_array(total, swap, "cw");

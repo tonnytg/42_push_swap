@@ -70,7 +70,9 @@ int is_sorted(int total, void **array)
 
 int get_bit(int value, int bit)
 {
-	return (value >> bit) & 1;
+	int result = value >> bit & 1;
+	printf("value: %d - bit: %d - result: %d\n", value, bit, result);
+	return (value >> bit) & 1; // << multiplica >> divide
 }
 
 void counting_sort_bit(int total, void **array, void **swap, int bit)
@@ -84,16 +86,27 @@ void counting_sort_bit(int total, void **array, void **swap, int bit)
 	{
 		top_a = last_p_array_void(total, array);
 		value_ptr = array[top_a];
-		if (get_bit(value_ptr[1], bit) == 0)
+		if (get_bit(value_ptr[1], bit) == 0) // 0000 0100
 		{
+			printf("fazendo pb para: %ld\n", value_ptr[1]);
 			sort_p_void(total, array, swap, 'b');
 		}
 		else
 		{
-			ft_printf("cheguei aqui1\n");
-			rotate_array(total, array, "ccw");
-			if (push_swap_needed(total, array) == 1)
-				break ;
+			printf("Vou rodar: %ld\n", value_ptr[1]);
+			sort_rr_void(total, array, swap, 'a');
+			int top_aa = last_p_array_void(total, array);
+			int i = 0;
+			while (i < top_aa)
+			{
+				long int *value_ptr = array[i];
+				printf("[%d]: %ld - indice:%ld\n", i, value_ptr[0], value_ptr[1]);
+				i++;
+			}
+//			rotate_array(total, array, "ccw");
+			top_a = last_p_array_void(total, array);
+//			if (push_swap_needed(top_a, array) == 1)
+//				break ;
 		}
 		i++;
 	}
@@ -104,6 +117,16 @@ void counting_sort_bit(int total, void **array, void **swap, int bit)
 		sort_p_void(total, array, swap, 'a');
 		top_a = last_p_array_void(total, swap);
 	}
+	int top_aa = last_p_array_void(total, array);
+	i = 0;
+	while (i < top_aa)
+	{
+		long int *value_ptr = array[i];
+		printf("[%d]: %ld - indice:%ld\n", i, value_ptr[0], value_ptr[1]);
+		i++;
+	}
+	printf("---\n");
+
 }
 
 void raddixsort(int total, void **array)
@@ -115,7 +138,9 @@ void raddixsort(int total, void **array)
 
 	swap = new_array_void(total);
 	max = get_max_indice(total, array);
+	printf("max: %d\n", max);
 	num_bits = get_count_bit(max);
+	printf("num_bits: %d\n", num_bits);
 	i = 0;
 	while (i < num_bits)
 	{

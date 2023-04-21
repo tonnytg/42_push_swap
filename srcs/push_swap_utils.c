@@ -15,13 +15,14 @@
 int is_long_int(int total, void **array)
 {
 	int i;
-	long int *value_ptr;
+	long long int value_ptr;
 
 	i = 0;
+	value_ptr = 0;
 	while (i < total)
 	{
-		value_ptr = array[i];
-		if (value_ptr[0] > MAX_INT || value_ptr[0] < MIN_INT)
+		value_ptr = *(long int *)array[i];
+		if (value_ptr > MAX_INT || value_ptr < MIN_INT)
 		{
 			ft_printf("Error\n");
 			return (1);
@@ -60,6 +61,7 @@ int is_duplicated(int total, void **array)
 
 int	push_swap_needed(int total, void **array)
 {
+	// TODO: Trava de segurança para não passar de Nulo ou zero
 	int	i;
 	long int *value_ptr1;
 	long int *value_ptr2;

@@ -119,16 +119,13 @@ void	rotate_array(int total, void **array, char *option)
 	}
 	if (ft_strcmp(option, "ccw") == 0)
 	{
-		ft_printf("vou rodar ccw\n");
 		top_a = last_p_array_void(total, array);
-		tmp = array[0]; // Salvei a calda
+		tmp = array[0];
 		i = 0;
-		ft_printf("top_a = %d\n", top_a);
 		while (i < top_a)
 		{
-			ft_printf("ccw loop: %d\n", i);
 			value_ptr1 = array[i + 1];
-			array[i] = value_ptr1; // TODO: loop 1 com bug
+			array[i] = value_ptr1;
 			i++;
 		}
 		array[top_a] = tmp;
@@ -155,7 +152,6 @@ void	set_array_indice(int size, void **array)
 	}
 	quicksort(pairs, 0, size - 1);
 	i = 0;
-
 	while (i < size)
 	{
 		vector = array[pairs[i].indice];

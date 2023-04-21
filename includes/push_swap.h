@@ -51,4 +51,5 @@ void	reset_array_indice(int total, void **array);
 void	set_array_indice(int size, void **array);
 void	print_indices(int total, void **array);
 int		get_max_indice(int total, void **array);
+int		is_duplicated(int total, void **array);
 #endif

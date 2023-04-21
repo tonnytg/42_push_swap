@@ -31,7 +31,7 @@ void	*new_array_void(int total)
 
 void	reset_array_indice(int total, void **array)
 {
-	int	*value_ptr;
+	long int	*value_ptr;
 	int	i;
 
 	i = 0;

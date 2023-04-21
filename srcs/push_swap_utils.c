@@ -12,12 +12,31 @@
 
 #include "../includes/push_swap.h"
 
+int is_long_int(int total, void **array)
+{
+	int i;
+	long int *value_ptr;
+
+	i = 0;
+	while (i < total)
+	{
+		value_ptr = array[i];
+		if (value_ptr[0] > MAX_INT || value_ptr[0] < MIN_INT)
+		{
+			ft_printf("Error\n");
+			return (1);
+		}
+		i++;
+	}
+	return (0);
+}
+
 int is_duplicated(int total, void **array)
 {
 	int i;
 	int j;
-	int *value_ptr1;
-	int *value_ptr2;
+	long int *value_ptr1;
+	long int *value_ptr2;
 
 	i = 0;
 	while(i < total)
@@ -42,9 +61,11 @@ int is_duplicated(int total, void **array)
 int	push_swap_needed(int total, void **array)
 {
 	int	i;
-	int *value_ptr1;
-	int *value_ptr2;
+	long int *value_ptr1;
+	long int *value_ptr2;
 
+	if (is_long_int(total, array))
+		return (0);
 	if (is_duplicated(total, array))
 		return (0);
 	i = total - 1;

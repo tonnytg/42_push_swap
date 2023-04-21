@@ -12,9 +12,9 @@
 
 #include "../includes/push_swap.h"
 
-int	push_void(int total, void **array, int value, int index)
+int	push_void(int total, void **array, long int value, int index)
 {
-	int	*value_ptr;
+	long int	*value_ptr;
 	int	i;
 
 	i = 0;
@@ -24,7 +24,7 @@ int	push_void(int total, void **array, int value, int index)
 	}
 	if (i == total)
 		return (0);
-	value_ptr = malloc(sizeof(int) * 2);
+	value_ptr = malloc(sizeof(long int) * 2);
 	value_ptr[0] = value;
 	value_ptr[1] = index;
 	array[i] = value_ptr;

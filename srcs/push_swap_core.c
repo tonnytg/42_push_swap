@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 void	push_all_values(int total, void **array, char **argv)
 {
@@ -21,7 +22,7 @@ void	push_all_values(int total, void **array, char **argv)
 	{
 		// TODO: Criar uma ft_atol
 		// TODO: Subistituir o atoi pra atol
-		push_void(total, array, ft_atoi(argv[i]), 0);
+		push_void(total, array, ft_atol(argv[i]), 0);
 		i--;
 	}
 }
@@ -46,18 +47,18 @@ void	push_swap(int argc, char **argv)
 	total = argc - 1;
 	stack_a = new_array_void(total);
 	push_all_values(total, stack_a, argv);
-	reset_array_indice(total, stack_a); // garante indice com zero
+	reset_array_indice(total, stack_a);
 	set_array_indice(total, stack_a);
 	if (push_swap_needed(total, stack_a))
 	{
 		ft_sort_void(total, stack_a);
-		int i = 0;
-		while (i < total)
-		{
-			int *value_ptr = stack_a[i];
-			ft_printf("[%d]: %d - indice:%d\n", i, value_ptr[0], value_ptr[1]);
-			i++;
-		}
+//		int i = 0;
+//		while (i < total)
+//		{
+//			long int *value_ptr = stack_a[i];
+//			printf("[%d]: %ld - indice:%ld\n", i, value_ptr[0], value_ptr[1]);
+//			i++;
+//		}
 	}
 	set_erease_void(total, stack_a);
 	free(stack_a);

@@ -59,9 +59,9 @@ void	quicksort(t_pair *pairs, long int left, long int right)
 
 void ft_sort_three_void(int total, void **array)
 {
-	int *value_ptr1;
-	int *value_ptr2;
-	int *value_ptr3;
+	long int *value_ptr1;
+	long int *value_ptr2;
+	long int *value_ptr3;
 	int i;
 
 	i = 0;
@@ -134,7 +134,7 @@ void	rotate_array(int total, void **array, char *option)
 void	set_array_indice(int size, void **array)
 {
 	int		i;
-	int		*vector;
+	long int		*vector;
 	t_pair	*pairs;
 
 	vector = NULL;

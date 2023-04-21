@@ -27,6 +27,9 @@ typedef struct s_pair
 	long int	indice;
 }	t_pair;
 
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
+
 int		check_values(int total, char **values);
 int		push_swap_needed(int total, void **array);
 void	push_swap(int argc, char **argv);
@@ -37,7 +40,7 @@ int		last_p_array_void(int total, void **array);
 void    rotate_array(int total, void **array, char *option);
 void	set_erease_void(int total, void **array);
 void	push_all_values(int total, void **array, char **argv);
-int		push_void(int total, void **array, int value, int index);
+int		push_void(int total, void **array, long int value, int index);
 int		*pop_void(int total, void **array);
 int		*peek_void(int total, void **array);
 void	ft_sort_void(int total, void **array);

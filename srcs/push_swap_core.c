@@ -52,13 +52,13 @@ void	push_swap(int argc, char **argv)
 	if (push_swap_needed(total, stack_a))
 	{
 		ft_sort_void(total, stack_a);
-//		int i = 0;
-//		while (i < total)
-//		{
-//			long int *value_ptr = stack_a[i];
-//			printf("[%d]: %ld - indice:%ld\n", i, value_ptr[0], value_ptr[1]);
-//			i++;
-//		}
+		int i = 0;
+		while (i < total)
+		{
+			long int *value_ptr = stack_a[i];
+			printf("[%d]: %ld - indice:%ld\n", i, value_ptr[0], value_ptr[1]);
+			i++;
+		}
 	}
 	set_erease_void(total, stack_a);
 	free(stack_a);

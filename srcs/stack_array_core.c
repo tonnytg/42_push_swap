@@ -31,10 +31,10 @@ int	push_void(int total, void **array, long int value, int index)
 	return (1);
 }
 
-int	*pop_void(int total, void **array)
+long int	*pop_void(int total, void **array)
 {
 	int	i;
-	int	*value_ptr;
+	long int	*value_ptr;
 
 	i = 0;
 	while (array[i] != NULL && i < total)
@@ -46,10 +46,10 @@ int	*pop_void(int total, void **array)
 	return (value_ptr);
 }
 
-int	*peek_void(int total, void **array)
+long int	*peek_void(int total, void **array)
 {
 	int	i;
-	int	*value_ptr;
+	long int	*value_ptr;
 
 	i = 0;
 	while (array[i] != NULL && i < total)

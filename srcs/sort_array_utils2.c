@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 void	change(t_pair *x, t_pair *y)
 {
@@ -100,7 +101,8 @@ void	rotate_array(int total, void **array, char *option)
 {
 	int		i;
 	int		top_a;
-	void	*tmp;
+	long int	*tmp;
+	long int *value_ptr1;
 
 	if (ft_strcmp(option, "cw") == 0)
 	{
@@ -117,12 +119,16 @@ void	rotate_array(int total, void **array, char *option)
 	}
 	if (ft_strcmp(option, "ccw") == 0)
 	{
+		ft_printf("vou rodar ccw\n");
 		top_a = last_p_array_void(total, array);
-		tmp = array[0];
+		tmp = array[0]; // Salvei a calda
 		i = 0;
+		ft_printf("top_a = %d\n", top_a);
 		while (i < top_a)
 		{
-			array[i] = array[i + 1];
+			ft_printf("ccw loop: %d\n", i);
+			value_ptr1 = array[i + 1];
+			array[i] = value_ptr1; // TODO: loop 1 com bug
 			i++;
 		}
 		array[top_a] = tmp;

@@ -94,7 +94,7 @@ int	sort_rr_void(int total, void **array, void **swap, char c)
 
 int	sort_p_void(int total, void **array, void **swap, char c)
 {
-	int	*value;
+	long int	*value;
 
 	if (c == 'a')
 	{

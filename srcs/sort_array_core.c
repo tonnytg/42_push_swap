@@ -16,7 +16,7 @@ int	get_max_indice(int total, void **array)
 {
 	int	i;
 	int	max;
-	int *value_ptr;
+	long int *value_ptr;
 
 	i = 0;
 	max = 0;
@@ -76,7 +76,7 @@ int get_bit(int value, int bit)
 void counting_sort_bit(int total, void **array, void **swap, int bit)
 {
 	int i;
-	int *value_ptr;
+	long int *value_ptr;
 	int top_a;
 
 	i = 0;
@@ -86,12 +86,11 @@ void counting_sort_bit(int total, void **array, void **swap, int bit)
 		value_ptr = array[top_a];
 		if (get_bit(value_ptr[1], bit) == 0)
 		{
-			top_a = last_p_array_void(total, array);
-			value_ptr = array[top_a];
 			sort_p_void(total, array, swap, 'b');
 		}
 		else
 		{
+			ft_printf("cheguei aqui1\n");
 			rotate_array(total, array, "ccw");
 			if (push_swap_needed(total, array) == 1)
 				break ;

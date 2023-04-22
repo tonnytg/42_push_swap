@@ -29,28 +29,26 @@ void	*new_array_void(int total)
 	return (array);
 }
 
-void	reset_array_indice(int total, void **array)
-{
-	long int	*value_ptr;
-	int	i;
+//void	reset_array_indice(int total, t_pair *array)
+//{
+//	int	i;
+//
+//	i = 0;
+//	while (i < total)
+//	{
+//		array[i].index = 0;
+//		i++;
+//	}
+//}
 
-	i = 0;
-	while (i < total)
-	{
-		value_ptr = array[i];
-		value_ptr[1] = 0;
-		i++;
-	}
-}
-
-int	last_p_array_void(int total, void **array)
+int	last_p_array_void(int total, t_pair *array)
 {
 	int	i;
 
 	i = 0;
 	while (i <= total)
 	{
-		if (array[i] != NULL && array[i] != 0x0 && i != total)
+		if (array[i].is_active != 0 && i != total)
 			i++;
 		else
 			return (i - 1);

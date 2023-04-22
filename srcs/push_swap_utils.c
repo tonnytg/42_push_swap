@@ -12,16 +12,14 @@
 
 #include "../includes/push_swap.h"
 
-int is_long_int(int total, void **array)
+int is_long_int(int total, t_pair *array)
 {
 	int i;
-	long int *value_ptr;
 
 	i = 0;
 	while (i < total)
 	{
-		value_ptr = array[i];
-		if (value_ptr[0] > MAX_INT || value_ptr[0] < MIN_INT)
+		if (array[i].value > MAX_INT || array[i].value < MIN_INT)
 		{
 			ft_printf("Error\n");
 			return (1);
@@ -31,22 +29,18 @@ int is_long_int(int total, void **array)
 	return (0);
 }
 
-int is_duplicated(int total, void **array)
+int is_duplicated(int total, t_pair *array)
 {
 	int i;
 	int j;
-	long int *value_ptr1;
-	long int *value_ptr2;
 
 	i = 0;
 	while(i < total)
 	{
-		value_ptr1 = array[i];
 		j = 0;
 		while (j < total)
 		{
-			value_ptr2 = array[j];
-			if (value_ptr1[0] == value_ptr2[0] && i != j)
+			if (array[i].value == array[j].value && i != j)
 			{
 				ft_printf("Error\n");
 				return (1);
@@ -58,11 +52,9 @@ int is_duplicated(int total, void **array)
 	return (0);
 }
 
-int	push_swap_needed(int total, void **array)
+int	push_swap_needed(int total, t_pair *array)
 {
 	int	i;
-	long int *value_ptr1;
-	long int *value_ptr2;
 
 	if (is_long_int(total, array))
 		return (0);
@@ -70,10 +62,8 @@ int	push_swap_needed(int total, void **array)
 		return (0);
 	i = total - 1;
 	while (i > 0) {
-		if (array[i] != NULL && array[i - 1] != NULL) {
-			value_ptr1 = array[i];
-			value_ptr2 = array[i - 1];
-			if ( value_ptr1[1] > value_ptr2[1])
+		if (array[i].is_active != 0 && array[i - 1].is_active != 0) {
+			if ( array[i].index > array[i - 1].index)
 				return (1);
 		}
 		i--;
@@ -91,7 +81,7 @@ int	check_values(int argc, char **argv)
 	while (i < argc)
 	{
 		if (!ft_strisdigit(argv[i])
-			&& !(argv[i][0] == '-'
+			&& (argv[i][0] != '-'
 			&& ft_strisdigit(&argv[i][1])))
 			return (1);
 		if (argv[i][0] == '-' && !ft_isdigit(argv[i][1]))

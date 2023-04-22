@@ -13,7 +13,7 @@
 #include "../includes/push_swap.h"
 #include <stdio.h>
 
-void	push_all_values(int total, void **array, char **argv)
+void	push_all_values(int total, t_pair *array, char **argv)
 {
 	int	i;
 
@@ -37,33 +37,25 @@ void	set_erease_void(int total, void **array)
 	}
 }
 
-void print_array(int total, void **stack_a)
+void print_array(int total, t_pair *array)
 {
 	int i = 0;
 
 	while (i < total)
 	{
-		long int *value_ptr = stack_a[i];
-		printf("[%d]: %ld - indice:%ld\n", i, value_ptr[0], value_ptr[1]);
+		printf("[%d]: %ld - indice:%ld\n", i, array[i].value, array[i].index);
 		i++;
 	}
 }
 
 void	push_swap(int argc, char **argv)
 {
-	void	**stack_a;
+	t_pair	*stack_a;
 	int		total;
 
 	total = argc - 1;
-	stack_a = new_array_void(total);
+	stack_a = malloc(sizeof(t_pair) * total);
 	push_all_values(total, stack_a, argv);
-	reset_array_indice(total, stack_a);
-	set_array_indice(total, stack_a);
-	if (push_swap_needed(total, stack_a))
-	{
-		ft_sort_void(total, stack_a);
-//		print_array(total, stack_a);
-	}
-	set_erease_void(total, stack_a);
+	print_array(total, stack_a);
 	free(stack_a);
 }

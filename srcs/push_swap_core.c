@@ -25,18 +25,6 @@ void	push_all_values(int total, t_pair *array, char **argv)
 	}
 }
 
-void	set_erease_void(int total, void **array)
-{
-	int	i;
-
-	i = 0;
-	while (i < total)
-	{
-		array[i] = NULL;
-		i++;
-	}
-}
-
 void print_array(int total, t_pair *array)
 {
 	int i = 0;
@@ -54,7 +42,7 @@ void	push_swap(int argc, char **argv)
 	int		total;
 
 	total = argc - 1;
-	stack_a = malloc(sizeof(t_pair) * total);
+	stack_a = ft_calloc(total, sizeof(t_pair));
 	push_all_values(total, stack_a, argv);
 	print_array(total, stack_a);
 	free(stack_a);

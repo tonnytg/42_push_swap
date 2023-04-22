@@ -59,9 +59,13 @@ void set_index(int total, t_pair *array)
 	free(pairs);
 }
 
-void sort_array(t_pair *array)
+void sort_array(int total, t_pair *array)
 {
-	ft_printf("[%d]sorting...\n", array[0].value);
+	if (total == 2)
+	{
+		sort_s_void(total, array, NULL, 'a');
+		return ;
+	}
 }
 
 void	push_swap(int argc, char **argv)
@@ -74,7 +78,7 @@ void	push_swap(int argc, char **argv)
 	push_all_values(total, stack_a, argv);
 	set_index(total, stack_a);
 	if (sort_is_needed(total, stack_a))
-		sort_array(stack_a);
+		sort_array(total, stack_a);
 	print_array(total, stack_a);
 	free(stack_a);
 }

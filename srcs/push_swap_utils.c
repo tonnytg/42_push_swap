@@ -20,10 +20,7 @@ int is_long_int(int total, t_pair *array)
 	while (i < total)
 	{
 		if (array[i].value > MAX_INT || array[i].value < MIN_INT)
-		{
-			ft_printf("Error int\n");
 			return (1);
-		}
 		i++;
 	}
 	return (0);
@@ -41,10 +38,7 @@ int is_duplicated(int total, t_pair *array)
 		while (j < total)
 		{
 			if (array[i].value == array[j].value && i != j)
-			{
-				ft_printf("Error duplicated\n");
 				return (1);
-			}
 			j++;
 		}
 		i++;
@@ -57,16 +51,20 @@ int	sort_is_needed(int total, t_pair *array)
 	int	i;
 
 	if (is_long_int(total, array))
+	{
+		ft_printf("is long int\n");
 		return (0);
+	}
 	if (is_duplicated(total, array))
+	{
+		ft_printf("is duplicated\n");
 		return (0);
+	}
 	i = total - 1;
 	while (i > 0) {
 		if (array[i].is_active != 0 && array[i - 1].is_active != 0) {
-			if ( array[i].index < array[i - 1].index)
-			{
+			if ( array[i].index > array[i - 1].index)
 				return (1);
-			}
 		}
 		i--;
 	}

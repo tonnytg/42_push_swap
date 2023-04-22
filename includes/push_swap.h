@@ -41,8 +41,8 @@ void    rotate_array(int total, void **array, char *option);
 void	set_erease_void(int total, void **array);
 void	push_all_values(int total, void **array, char **argv);
 int		push_void(int total, void **array, long int value, int index);
-int		*pop_void(int total, void **array);
-int		*peek_void(int total, void **array);
+long int		*pop_void(int total, void **array);
+long int		*peek_void(int total, void **array);
 void	ft_sort_void(int total, void **array);
 int		sort_s_void(int total, void **array, void **swap, char c);
 int		sort_r_void(int total, void **array, void **swap, char c);
@@ -55,4 +55,6 @@ void	set_array_indice(int size, void **array);
 void	print_indices(int total, void **array);
 int		get_max_indice(int total, void **array);
 int		is_duplicated(int total, void **array);
+void	print_array(int total, void **stack_a);
+
 #endif

@@ -80,6 +80,65 @@ void ft_sort_three_void(int total, void **array)
 	}
 }
 
+long int find_min(int total, void **array)
+{
+	int i;
+	int min;
+	long int *value_ptr;
+
+	i = 0;
+	min = MAX_INT;
+	while (i < total)
+	{
+		if (array[i] != NULL || array[i] != 0x0)
+		{
+			value_ptr = array[i];
+			if (value_ptr[1] < min)
+				min = value_ptr[1];
+		}
+		i++;
+	}
+	return (min);
+}
+
+void ft_sort_five_void(int total, void **array)
+{
+	int i, trigger;
+	long int min;
+	long int *value_ptr;
+	void **swap;
+	int top_a;
+
+	i = 0;
+	min = 0;
+	trigger = 0;
+	swap = new_array_void(total);
+	i = 0;
+	while (trigger < 2)
+	{
+		top_a = last_p_array_void(total, array);
+		value_ptr = array[top_a];
+		min = find_min(total, array);
+		if (value_ptr[1] == min)
+		{
+			sort_p_void(total, array, swap, 'b');
+			trigger++;
+		}
+		else
+		{
+			sort_r_void(total, array, swap, 'a');
+		}
+		i++;
+	}
+	ft_sort_three_void(total - trigger, array);
+	int top_b = last_p_array_void(total, swap);
+	if (top_b >= 0)
+		sort_p_void(total, array, swap, 'a');
+	top_b = last_p_array_void(total, swap);
+	if (top_b >= 0)
+		sort_p_void(total, array, swap, 'a');
+}
+
 void	ft_sort_void(int total, void **array)
 {
 	if (total == 2)
@@ -90,6 +149,11 @@ void	ft_sort_void(int total, void **array)
 	if (total == 3)
 	{
 		ft_sort_three_void(total, array);
+		return ;
+	}
+	if (total == 5)
+	{
+		ft_sort_five_void(total, array);
 		return ;
 	}
 	raddixsort(total, array);

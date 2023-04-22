@@ -3,3 +3,5 @@ push_swap
 libft.a
 .DS_Store
 .idea
+libs
+includes/libft.h

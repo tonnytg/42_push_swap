@@ -24,37 +24,38 @@
 typedef struct s_pair
 {
 	long int	value;
-	long int	indice;
+	long int	index;
+	int 		is_active;
 }	t_pair;
 
 # define MAX_INT 2147483647
 # define MIN_INT -2147483648
 
 int		check_values(int total, char **values);
-int		push_swap_needed(int total, void **array);
+int		push_swap_needed(int total, t_pair *array);
 void	push_swap(int argc, char **argv);
 void	*new_array_void(int total);
-void	set_clean_void(int total, void **array);
-void	print_array_void(int total, void **array, void **swap);
-int		last_p_array_void(int total, void **array);
-void    rotate_array(int total, void **array, char *option);
+void	set_clean_void(int total, t_pair *array);
+void	print_array_void(int total, t_pair *array, t_pair *swap);
+int		last_p_array_void(int total, t_pair *array);
+void	rotate_array(int total, t_pair *array, char *option);
 void	set_erease_void(int total, void **array);
-void	push_all_values(int total, void **array, char **argv);
-int		push_void(int total, void **array, long int value, int index);
-long int		*pop_void(int total, void **array);
-long int		*peek_void(int total, void **array);
-void	ft_sort_void(int total, void **array);
-int		sort_s_void(int total, void **array, void **swap, char c);
-int		sort_r_void(int total, void **array, void **swap, char c);
-int		sort_rr_void(int total, void **array, void **swap, char c);
-int		sort_p_void(int total, void **array, void **swap, char c);
-void	raddixsort(int total, void **array);
+void	push_all_values(int total, t_pair *array, char **argv);
+int		push_void(int total, t_pair *array, long int value, int index);
+t_pair	pop(int total, t_pair *array);
+t_pair	peek(int total, t_pair *array);
+void	ft_sort_void(int total, t_pair *array);
+int		sort_s_void(int total, t_pair *array, t_pair *swap, char c);
+int		sort_r_void(int total, t_pair *array, t_pair *swap, char c);
+int		sort_rr_void(int total, t_pair *array, t_pair *swap, char c);
+int		sort_p_void(int total, t_pair *array, t_pair *swap, char c);
+void	raddixsort(int total, t_pair *array);
 void	quicksort(t_pair *pairs, long int left, long int right);
-void	reset_array_indice(int total, void **array);
-void	set_array_indice(int size, void **array);
-void	print_indices(int total, void **array);
-int		get_max_indice(int total, void **array);
-int		is_duplicated(int total, void **array);
-void	print_array(int total, void **stack_a);
+//void	reset_array_indice(int total, t_pair *array);
+//void	set_array_indice(int size, t_pair *array);
+void	print_indices(int total, t_pair *array);
+int		get_max_indice(int total, t_pair *array);
+int		is_duplicated(int total, t_pair *array);
+void	print_array(int total, t_pair *array);
 
 #endif

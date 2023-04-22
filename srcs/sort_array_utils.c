@@ -12,27 +12,27 @@
 
 #include "../includes/push_swap.h"
 
-int	sort_s_void(int total, void **array, void **swap, char c)
+int	sort_s_void(int total, t_pair *array, t_pair *swap, char c)
 {
 	int	top_a;
 	int	top_s;
-	int	*value_ptr;
+	t_pair tmp;
 
 	if (c == 'a')
 	{
 		top_a = last_p_array_void(total, array);
-		value_ptr = array[top_a];
+		tmp = array[top_a];
 		array[top_a] = array[top_a - 1];
-		array[top_a - 1] = value_ptr;
+		array[top_a - 1] = tmp;
 		ft_printf("s%c\n", c);
 		return (0);
 	}
 	if (c == 'b')
 	{
 		top_s = last_p_array_void(total, swap);
-		value_ptr = swap[top_s];
+		tmp = swap[top_s];
 		swap[top_s] = swap[top_s - 1];
-		swap[top_s - 1] = value_ptr;
+		swap[top_s - 1] = tmp;
 		ft_printf("s%c\n", c);
 		return (0);
 	}
@@ -44,7 +44,7 @@ int	sort_s_void(int total, void **array, void **swap, char c)
 	return (1);
 }
 
-int	sort_r_void(int total, void **array, void **swap, char c)
+int	sort_r_void(int total, t_pair *array, t_pair *swap, char c)
 {
 	if (c == 'a')
 	{
@@ -68,7 +68,7 @@ int	sort_r_void(int total, void **array, void **swap, char c)
 	return (1);
 }
 
-int	sort_rr_void(int total, void **array, void **swap, char c)
+int	sort_rr_void(int total, t_pair *array, t_pair *swap, char c)
 {
 	if (c == 'a')
 	{
@@ -92,19 +92,19 @@ int	sort_rr_void(int total, void **array, void **swap, char c)
 	return (1);
 }
 
-int	sort_p_void(int total, void **array, void **swap, char c)
+int	sort_p_void(int total, t_pair *array, t_pair *swap, char c)
 {
-	long int	*value;
+	t_pair tmp;
 
 	if (c == 'a')
 	{
-		value = pop_void(total, swap);
-		push_void(total, array, value[0], value[1]);
+		tmp = pop(total, swap);
+		push_void(total, array, tmp.value, tmp.index);
 	}
 	else if (c == 'b')
 	{
-		value = pop_void(total, array);
-		push_void(total, swap, value[0], value[1]);
+		tmp = pop(total, array);
+		push_void(total, swap, tmp.value, tmp.index);
 	}
 	else
 		return (1);

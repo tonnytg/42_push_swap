@@ -60,7 +60,7 @@ int	sort_is_needed(int total, t_pair *array)
 		return (0);
 	if (is_duplicated(total, array))
 		return (0);
-	i = total;
+	i = total - 1;
 	while (i > 0) {
 		if (array[i].is_active != 0 && array[i - 1].is_active != 0) {
 			if ( array[i].index < array[i - 1].index)

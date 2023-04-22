@@ -21,7 +21,7 @@ int is_long_int(int total, t_pair *array)
 	{
 		if (array[i].value > MAX_INT || array[i].value < MIN_INT)
 		{
-			ft_printf("Error\n");
+			ft_printf("Error int\n");
 			return (1);
 		}
 		i++;
@@ -42,7 +42,7 @@ int is_duplicated(int total, t_pair *array)
 		{
 			if (array[i].value == array[j].value && i != j)
 			{
-				ft_printf("Error\n");
+				ft_printf("Error duplicated\n");
 				return (1);
 			}
 			j++;
@@ -52,7 +52,7 @@ int is_duplicated(int total, t_pair *array)
 	return (0);
 }
 
-int	push_swap_needed(int total, t_pair *array)
+int	sort_is_needed(int total, t_pair *array)
 {
 	int	i;
 
@@ -60,11 +60,13 @@ int	push_swap_needed(int total, t_pair *array)
 		return (0);
 	if (is_duplicated(total, array))
 		return (0);
-	i = total - 1;
+	i = total;
 	while (i > 0) {
 		if (array[i].is_active != 0 && array[i - 1].is_active != 0) {
-			if ( array[i].index > array[i - 1].index)
+			if ( array[i].index < array[i - 1].index)
+			{
 				return (1);
+			}
 		}
 		i--;
 	}

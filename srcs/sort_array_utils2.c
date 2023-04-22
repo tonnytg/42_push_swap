@@ -14,46 +14,44 @@
 
 void	change(t_pair *x, t_pair *y)
 {
-	t_pair	temp;
+	t_pair	tmp;
 
-	temp = *x;
+	tmp = *x;
 	*x = *y;
-	*y = temp;
+	*y = tmp;
 }
 
-int	partition(t_pair *pairs, long int left, long int right)
+int	partition(t_pair *array, long int left, long int right)
 {
 	long int	pivot;
 	long int	i;
 	long int	j;
 
-	// TODO: Bug bad access with 2 1 3 elements
-	pivot = pairs[right].value;
+	pivot = array[right].value;
 	i = left - 1;
 	j = left;
 	while (j < right)
 	{
-		if (pairs[j].value < pivot)
+		if (array[j].value < pivot)
 		{
 			i++;
-			change(&pairs[i], &pairs[j]);
+			change(&array[i], &array[j]);
 		}
 		j++;
 	}
-	change(&pairs[i + 1], &pairs[right]);
+	change(&array[i + 1], &array[right]);
 	return (i + 1);
 }
 
-void	quicksort(t_pair *pairs, long int left, long int right)
+void	quicksort(t_pair *array, long int left, long int right)
 {
 	long int	pivot;
 
-
 	if (left < right)
 	{
-		pivot = partition(pairs, left, right);
-		quicksort(pairs, left, pivot - 1);
-		quicksort(pairs, pivot + 1, right);
+		pivot = partition(array, left, right);
+		quicksort(array, left, pivot - 1);
+		quicksort(array, pivot + 1, right);
 	}
 }
 

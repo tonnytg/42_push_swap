@@ -32,7 +32,7 @@ typedef struct s_pair
 # define MIN_INT -2147483648
 
 int		check_values(int total, char **values);
-int		push_swap_needed(int total, t_pair *array);
+int		sort_is_needed(int total, t_pair *array);
 void	push_swap(int argc, char **argv);
 void	*new_array_void(int total);
 void	set_clean_void(int total, t_pair *array);

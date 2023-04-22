@@ -36,6 +36,34 @@ void print_array(int total, t_pair *array)
 	}
 }
 
+void set_index(int total, t_pair *array)
+{
+	int		i;
+	t_pair	*pairs;
+
+	pairs = malloc(total * sizeof(t_pair));
+	i = 0;
+	while (i < total)
+	{
+		pairs[i].value = array[i].value;
+		pairs[i].index = i;
+		i++;
+	}
+	quicksort(pairs, 0, total - 1);
+	i = 0;
+	while (i < total)
+	{
+		array[pairs[i].index].index = i;
+		i++;
+	}
+	free(pairs);
+}
+
+void sort_array(t_pair *array)
+{
+	ft_printf("[%d]sorting...\n", array[0].value);
+}
+
 void	push_swap(int argc, char **argv)
 {
 	t_pair	*stack_a;
@@ -44,6 +72,9 @@ void	push_swap(int argc, char **argv)
 	total = argc - 1;
 	stack_a = ft_calloc(total, sizeof(t_pair));
 	push_all_values(total, stack_a, argv);
+	set_index(total, stack_a);
+	if (sort_is_needed(total, stack_a))
+		sort_array(stack_a);
 	print_array(total, stack_a);
 	free(stack_a);
 }

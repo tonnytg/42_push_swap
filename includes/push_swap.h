@@ -57,5 +57,9 @@ void	print_indices(int total, t_pair *array);
 int		get_max_indice(int total, t_pair *array);
 int		is_duplicated(int total, t_pair *array);
 void	print_array(int total, t_pair *array);
+void	ft_sort_three_elements(int total, t_pair *array);
+void	ft_sort_four_elements(int total, t_pair *array);
+void	ft_sort_five_elements(int total, t_pair *array);
+long int find_min(int total, t_pair *array);
 
 #endif

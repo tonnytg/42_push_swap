@@ -20,6 +20,9 @@ FILES 	= \
 			srcs/sort_array_core.c \
 			srcs/push_swap_utils.c \
 			srcs/push_swap_core.c \
+			srcs/sort_three_elements.c \
+			srcs/sort_four_elements.c \
+			srcs/sort_five_elements.c \
 			srcs/main.c
 OBJS  	= $(FILES:.c=.o)
 CC 		= gcc

@@ -66,6 +66,22 @@ void sort_array(int total, t_pair *array)
 		sort_s_void(total, array, NULL, 'a');
 		return ;
 	}
+	if (total == 3)
+	{
+		ft_sort_three_elements(total, array);
+		return ;
+	}
+	if (total == 4)
+	{
+		ft_sort_four_elements(total, array);
+		return ;
+	}
+	if (total == 5)
+	{
+		ft_printf("sort 3\n");
+		ft_sort_five_elements(total, array);
+		return ;
+	}
 }
 
 void	push_swap(int argc, char **argv)

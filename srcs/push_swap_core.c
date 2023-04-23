@@ -78,7 +78,6 @@ void sort_array(int total, t_pair *array)
 	}
 	if (total == 5)
 	{
-		ft_printf("sort 3\n");
 		ft_sort_five_elements(total, array);
 		return ;
 	}
@@ -95,6 +94,6 @@ void	push_swap(int argc, char **argv)
 	set_index(total, stack_a);
 	if (sort_is_needed(total, stack_a))
 		sort_array(total, stack_a);
-	print_array(total, stack_a);
+	//print_array(total, stack_a);
 	free(stack_a);
 }

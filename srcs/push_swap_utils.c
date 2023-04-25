@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_values.c                                     :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:23:45 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/25 03:11:08 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/04/26 00:14:04 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ int	sort_is_needed(int total, t_pair *array)
 	if (is_long_int(total, array))
 	{
 		ft_printf("Error\n");
-		exit (1);
+		return (0);
 	}
 	if (is_duplicated(total, array))
 	{
 		ft_printf("Error\n");
-		exit (1);
+		return (0);
 	}
 	i = total - 1;
 	while (i > 0) {

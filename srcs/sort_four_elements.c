@@ -52,4 +52,5 @@ void	ft_sort_four_elements(int total, t_pair *array)
 	top_b = last_p_array_void(total, swap);
 	if (top_b >= 0)
 		sort_p_void(total, array, swap, 'a');
+	free(swap);
 }

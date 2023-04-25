@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   stack_array_core.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 13:20:42 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/25 13:59:37 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/04/26 00:06:02 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ t_pair pop(int total, t_pair *array)
 	t_pair		tmp;
 
 	i = 0;
-	while (array[i].is_active != 0 && i < total)
+	while (i < total && array[i].is_active != 0)
 	{
 		i++;
 	}

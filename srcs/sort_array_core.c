@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   raddixsort.c                                       :+:      :+:    :+:   */
+/*   sort_array_core.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 02:55:02 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/25 13:59:28 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/04/26 00:33:41 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,67 +47,53 @@ int	get_count_bit(int value)
 	return (count);
 }
 
-int is_sorted(int total, void **array)
-{
-	int i;
-
-	i = 0;
-	while (i < total)
-	{
-		int32_t *value_ptr1 = array[i];
-		int32_t *value_ptr2 = array[i + 1];
-
-		if (value_ptr1[1] > value_ptr2[1])
-		{
-			return (0);
-		}
-		i++;
-	}
-	return (1);
-}
-
 int get_bit(int value, int bit)
 {
 	return (value >> bit) & 1;
 }
 
-//void counting_sort_bit(int total, t_pair *array, t_pair *swap, int bit)
-//{
-//	int i;
-//	t_pair tmp;
-//	int top_a;
-//
-//	i = 0;
-//	while (i < total)
-//	{
-//		top_a = last_p_array_void(total, array);
-//		tmp = array[top_a];
-//		if (get_bit(tmp.index, bit) == 0)
-//		{
-//			top_a = last_p_array_void(total, array);
-//			tmp = array[top_a];
-//			sort_p_void(total, array, swap, 'b');
-//		}
-//		else
-//		{
-//			rotate_array(total, array, "ccw");
-//			if (push_swap_needed(total, array) == 1)
-//				break ;
-//		}
-//		i++;
-//	}
-//
-//	top_a = last_p_array_void(total, swap);
-//	while (top_a >= 0)
-//	{
-//		sort_p_void(total, array, swap, 'a');
-//		top_a = last_p_array_void(total, swap);
-//	}
-//}
+void counting_sort_bit(int total, t_pair *array, t_pair *swap, int bit)
+{
+	int i;
+	int top_a;
+	t_pair tmp;
+
+	i = 0;
+	while (i < total)
+	{
+		top_a = last_p_array_void(total, array);
+		tmp.value = array[top_a].value;
+		tmp.index = array[top_a].index;
+		if (get_bit(tmp.index, bit) == 0)
+		{
+			top_a = last_p_array_void(total, array);
+			tmp.value = array[top_a].value;
+			tmp.index = array[top_a].index;
+			sort_p_void(total, array, swap, 'b');
+		}
+		else
+		{
+			rotate_array(total, array, "ccw");
+			// if (sort_is_needed(total, array) == )
+			// {
+			// 	ft_printf("Sort is needed\n");
+			// 	break ;	
+			// }
+		}
+		i++;
+	}
+
+	top_a = last_p_array_void(total, swap);
+	while (top_a >= 0)
+	{
+		sort_p_void(total, array, swap, 'a');
+		top_a = last_p_array_void(total, swap);
+	}
+}
 
 void raddixsort(int total, t_pair *array)
 {
-	void **swap;
+	t_pair *swap;
 	int max;
 	int num_bits;
 	int i;
@@ -118,8 +104,8 @@ void raddixsort(int total, t_pair *array)
 	i = 0;
 	while (i < num_bits)
 	{
-		// counting_sort_bit(total, array, swap, i);
-		ft_printf("counting sort");
+		counting_sort_bit(total, array, swap, i);
+		// ft_printf("counting sort\n");
 		i++;
 	}
 	free(swap);

@@ -6,7 +6,7 @@
 #    By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/20 23:33:47 by antthoma          #+#    #+#              #
-#    Updated: 2023/02/25 14:05:42 by antthoma         ###   ########.fr        #
+#    Updated: 2023/04/26 00:03:36 by antthoma         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ FILES 	= \
 			srcs/main.c
 OBJS  	= $(FILES:.c=.o)
 CC 		= gcc
-CC_ARGS = -Wextra -Wall -Werror
+CC_ARGS = -Wextra -Wall -Werror -g3
 LIBS	= libs
 
 all: $(NAME)

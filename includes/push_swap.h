@@ -6,7 +6,7 @@
 /*   By: antthoma <antthoma@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 02:57:07 by antthoma          #+#    #+#             */
-/*   Updated: 2023/02/25 05:34:56 by antthoma         ###   ########.fr       */
+/*   Updated: 2023/04/26 00:19:31 by antthoma         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,14 +44,12 @@ void	set_erease_void(int total, void **array);
 void	push_all_values(int total, t_pair *array, char **argv);
 int		push(int total, t_pair *array, long int value, int index);
 t_pair	pop(int total, t_pair *array);
-t_pair	peek(int total, t_pair *array);
 void	ft_sort_void(int total, t_pair *array);
 int		sort_s_void(int total, t_pair *array, t_pair *swap, char c);
 int		sort_r_void(int total, t_pair *array, t_pair *swap, char c);
 int		sort_rr_void(int total, t_pair *array, t_pair *swap, char c);
 int		sort_p_void(int total, t_pair *array, t_pair *swap, char c);
 void	raddixsort(int total, t_pair *array);
-void	quicksort(t_pair *pairs, long int left, long int right);
 //void	reset_array_indice(int total, t_pair *array);
 //void	set_array_indice(int size, t_pair *array);
 void	print_indices(int total, t_pair *array);

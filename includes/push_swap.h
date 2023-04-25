@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 # include "libft.h"
 
 #define ANSI_COLOR_RED     "\x1b[31m"
@@ -41,7 +42,7 @@ int		last_p_array_void(int total, t_pair *array);
 void	rotate_array(int total, t_pair *array, char *option);
 void	set_erease_void(int total, void **array);
 void	push_all_values(int total, t_pair *array, char **argv);
-int		push_void(int total, t_pair *array, long int value, int index);
+int		push(int total, t_pair *array, long int value, int index);
 t_pair	pop(int total, t_pair *array);
 t_pair	peek(int total, t_pair *array);
 void	ft_sort_void(int total, t_pair *array);

@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-int	push_void(int total, t_pair *array, long int value, int index)
+int	push(int total, t_pair *array, long int value, int index)
 {
 	int	i;
 
@@ -39,21 +39,8 @@ t_pair pop(int total, t_pair *array)
 	{
 		i++;
 	}
-	tmp = array[i - 1];
+	tmp.value = array[i - 1].value;
+	tmp.index = array[i - 1].index;
 	array[i - 1].is_active = 0;
-	return (tmp);
-}
-
-t_pair peek(int total, t_pair *array)
-{
-	int	i;
-	t_pair tmp;
-
-	i = 0;
-	while (array[i].is_active != 0 && i < total)
-	{
-		i++;
-	}
-	tmp = array[i - 1];
 	return (tmp);
 }

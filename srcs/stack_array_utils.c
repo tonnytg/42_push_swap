@@ -12,46 +12,16 @@
 
 #include "../includes/push_swap.h"
 
-// TODO: Avaliar se tem como retornar um ponteiro de ponteiro
-void	*new_array_void(int total)
-{
-	void	**array;
-	int	i;
-
-	array = malloc(total * sizeof(void *));
-	i = 0;
-	// TODO: usar ft_caloc
-	while (i < total)
-	{
-		array[i] = NULL;
-		i++;
-	}
-	return (array);
-}
-
-//void	reset_array_indice(int total, t_pair *array)
-//{
-//	int	i;
-//
-//	i = 0;
-//	while (i < total)
-//	{
-//		array[i].index = 0;
-//		i++;
-//	}
-//}
-
 int	last_p_array_void(int total, t_pair *array)
 {
-	int	i;
+	int i;
 
 	i = 0;
-	while (i <= total)
+	while (i < total)
 	{
-		if (array[i].is_active != 0 && i != total)
-			i++;
-		else
-			return (i - 1);
+		if (array[i].is_active == 0)
+			break ;
+		i++;
 	}
-	return (-1);
+	return (i - 1);
 }

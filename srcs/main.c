@@ -14,11 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	if (check_values(argc, argv))
-	{
-		ft_printf("Error\n");
-		return (1);
-	}
+	check_values(argc, argv);
 	push_swap(argc, argv);
 	return (0);
 }

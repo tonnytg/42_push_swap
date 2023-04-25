@@ -112,7 +112,7 @@ void raddixsort(int total, t_pair *array)
 	int num_bits;
 	int i;
 
-	swap = new_array_void(total);
+	swap = ft_calloc(total, sizeof(t_pair));
 	max = get_max_indice(total, array);
 	num_bits = get_count_bit(max);
 	i = 0;

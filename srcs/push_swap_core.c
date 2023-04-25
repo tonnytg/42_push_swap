@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <stdio.h>
 
 void	push_all_values(int total, t_pair *array, char **argv)
 {
@@ -20,7 +19,7 @@ void	push_all_values(int total, t_pair *array, char **argv)
 	i = total;
 	while (i >= 1)
 	{
-		push_void(total, array, ft_atol(argv[i]), 0);
+		push(total, array, ft_atol(argv[i]), 0);
 		i--;
 	}
 }
@@ -36,27 +35,36 @@ void print_array(int total, t_pair *array)
 	}
 }
 
-void set_index(int total, t_pair *array)
+void set_my_indice(int total, t_pair *array)
 {
-	int		i;
-	t_pair	*pairs;
+	int i;
+	int j;
+	int max;
+	int counter;
 
-	pairs = malloc(total * sizeof(t_pair));
-	i = 0;
-	while (i < total)
+	j = 0;
+	counter = total;
+	while (j < total)
 	{
-		pairs[i].value = array[i].value;
-		pairs[i].index = i;
-		i++;
+		max = MIN_INT;
+		i = 0;
+		while (i < total) {
+			if (array[i].index == 0 && array[i].value > max) {
+				max = array[i].value;
+			}
+			i++;
+		}
+		i = 0;
+		while (i < total) {
+			if (max == array[i].value) {
+				array[i].index = counter;
+				counter--;
+				break;
+			}
+			i++;
+		}
+		j++;
 	}
-	quicksort(pairs, 0, total - 1);
-	i = 0;
-	while (i < total)
-	{
-		array[pairs[i].index].index = i;
-		i++;
-	}
-	free(pairs);
 }
 
 void sort_array(int total, t_pair *array)
@@ -91,9 +99,8 @@ void	push_swap(int argc, char **argv)
 	total = argc - 1;
 	stack_a = ft_calloc(total, sizeof(t_pair));
 	push_all_values(total, stack_a, argv);
-	set_index(total, stack_a);
+	set_my_indice(total, stack_a);
 	if (sort_is_needed(total, stack_a))
 		sort_array(total, stack_a);
-	//print_array(total, stack_a);
 	free(stack_a);
 }

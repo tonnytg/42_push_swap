@@ -52,13 +52,13 @@ int	sort_is_needed(int total, t_pair *array)
 
 	if (is_long_int(total, array))
 	{
-		ft_printf("is long int\n");
-		return (0);
+		ft_printf("Error\n");
+		exit (1);
 	}
 	if (is_duplicated(total, array))
 	{
-		ft_printf("is duplicated\n");
-		return (0);
+		ft_printf("Error\n");
+		exit (1);
 	}
 	i = total - 1;
 	while (i > 0) {
@@ -80,12 +80,16 @@ int	check_values(int argc, char **argv)
 	i = 1;
 	while (i < argc)
 	{
-		if (!ft_strisdigit(argv[i])
-			&& (argv[i][0] != '-'
-			&& ft_strisdigit(&argv[i][1])))
-			return (1);
-		if (argv[i][0] == '-' && !ft_isdigit(argv[i][1]))
-			return (1);
+		if (argv[i][0] != '-' && !ft_isdigit(argv[i][0]))
+		{
+			ft_printf("Error\n");
+			exit (1);
+		}
+		if (argv[i][0] == '-' && argv[i][1] == '\0')
+		{
+			ft_printf("Error\n");
+			exit (1);
+		}
 		i++;
 	}
 	return (0);

@@ -8,7 +8,7 @@ void	ft_sort_five_elements(int total, t_pair *array)
 	int top_a;
 
 	trigger = 0;
-	swap = new_array_void(total);
+	swap = ft_calloc(total, sizeof(t_pair));
 	i = 0;
 	while (trigger < 2)
 	{

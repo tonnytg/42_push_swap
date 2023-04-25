@@ -21,18 +21,24 @@ int	sort_s_void(int total, t_pair *array, t_pair *swap, char c)
 	if (c == 'a')
 	{
 		top_a = last_p_array_void(total, array);
-		tmp = array[top_a];
-		array[top_a] = array[top_a - 1];
-		array[top_a - 1] = tmp;
+		tmp.value = array[top_a].value;
+		tmp.index = array[top_a].index;
+		array[top_a].value = array[top_a - 1].value;
+		array[top_a].index = array[top_a - 1].index;
+		array[top_a - 1].value = tmp.value;
+		array[top_a - 1].index = tmp.index;
 		ft_printf("s%c\n", c);
 		return (0);
 	}
 	if (c == 'b')
 	{
 		top_s = last_p_array_void(total, swap);
-		tmp = swap[top_s];
-		swap[top_s] = swap[top_s - 1];
-		swap[top_s - 1] = tmp;
+		tmp.value = swap[top_s].value;
+		tmp.index = swap[top_s].index;
+		swap[top_s].value = swap[top_s - 1].value;
+		swap[top_s].index = swap[top_s - 1].index;
+		swap[top_s - 1].value = tmp.value;
+		swap[top_s - 1].index = tmp.index;
 		ft_printf("s%c\n", c);
 		return (0);
 	}
@@ -99,12 +105,12 @@ int	sort_p_void(int total, t_pair *array, t_pair *swap, char c)
 	if (c == 'a')
 	{
 		tmp = pop(total, swap);
-		push_void(total, array, tmp.value, tmp.index);
+		push(total, array, tmp.value, tmp.index);
 	}
 	else if (c == 'b')
 	{
 		tmp = pop(total, array);
-		push_void(total, swap, tmp.value, tmp.index);
+		push(total, swap, tmp.value, tmp.index);
 	}
 	else
 		return (1);

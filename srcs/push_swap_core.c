@@ -103,5 +103,6 @@ void	push_swap(int argc, char **argv)
 	set_my_indice(total, stack_a);
 	if (sort_is_needed(total, stack_a))
 		sort_array(total, stack_a);
+	print_array(total, stack_a);
 	free(stack_a);
 }

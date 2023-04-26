@@ -28,23 +28,33 @@ int	get_max_indice(int total, t_pair *array)
 	return (max);
 }
 
-int	get_count_bit(int value)
-{
-	int	i;
-	int count;
-	char *temp;
+//int	get_count_bit(int value)
+//{
+//	int	i;
+//	int count;
+//	char *temp;
+//
+//	i = 8;
+//	count = 0;
+//	temp = ft_char_to_bit(value);
+//	while (i > 0)
+//	{
+//		if (temp[i] == '1')
+//			count = i;
+//		i--;
+//	}
+//	count = 8 - count;
+//	return (count);
+//}
 
-	i = 8;
-	count = 0;
-	temp = ft_char_to_bit(value);
-	while (i > 0)
-	{
-		if (temp[i] == '1')
-			count = i;
-		i--;
+int get_count_bit(int value)
+{
+	int count = 0;
+	while (value != 0) {
+		count++;
+		value >>= 1;
 	}
-	count = 8 - count;
-	return (count);
+	return count;
 }
 
 int get_bit(int value, int bit)

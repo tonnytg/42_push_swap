@@ -24,17 +24,6 @@ void	push_all_values(int total, t_pair *array, char **argv)
 	}
 }
 
-void print_array(int total, t_pair *array)
-{
-	int i = 0;
-
-	while (i < total)
-	{
-		printf("[%d]: %ld - indice:%ld\n", i, array[i].value, array[i].index);
-		i++;
-	}
-}
-
 void set_my_indice(int total, t_pair *array)
 {
 	int i;
@@ -103,6 +92,5 @@ void	push_swap(int argc, char **argv)
 	set_my_indice(total, stack_a);
 	if (sort_is_needed(total, stack_a))
 		sort_array(total, stack_a);
-//	print_array(total, stack_a);
 	free(stack_a);
 }

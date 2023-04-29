@@ -41,7 +41,7 @@ void	ft_sort_four_elements(int total, t_pair *array)
 		}
 		else
 		{
-			sort_r_void(total, array, swap, 'a');
+			sort_rr_void(total, array, swap, 'a');
 		}
 		i++;
 	}

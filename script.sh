@@ -1,25 +1,31 @@
 #!/bin/bash
 
-for i in {1..100}
+export ARGS=()
+for i in {1..20}
 do
-  # Gera três números aleatórios entre 1 e 100
-  num1=$((RANDOM % 100 + 1))
-  num2=$((RANDOM % 100 + 1))
-  num3=$((RANDOM % 100 + 1))
-  num4=$((RANDOM % 100 + 1))
-  num5=$((RANDOM % 100 + 1))
-
-  # Armazena os números aleatórios na variável ARGS
-  export ARGS="$num1 $num2 $num3 $num4 $num5"
+  for i in {1..5}
+  do
+    num=$((RANDOM % 100 + 1))
+    if [[ ! "${ARGS[@]}" =~ "${num}" ]]; then
+      ARGS[i]=$num
+    fi
+  done
 
   # Exibe o conteúdo da variável ARGS
-  ./push_swap $ARGS | ./checker_Mac $ARGS
+  ./push_swap ${ARGS[@]} | ./checker_Mac ${ARGS[@]}
   if [ $? -eq 0 ]
   then
+    moves=`./push_swap ${ARGS[@]} | wc -l`
+    if [ $moves -gt 12 ]
+    then
+      echo "KO"
+      echo ${ARGS[@]}
+      break
+    fi
     echo "OK"
   else
-    echo $ARGS
     echo "KO"
+    echo $ARGS
     break
   fi
 done

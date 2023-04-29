@@ -60,5 +60,7 @@ void	ft_sort_three_elements(int total, t_pair *array);
 void	ft_sort_four_elements(int total, t_pair *array);
 void	ft_sort_five_elements(int total, t_pair *array);
 long int find_min(int total, t_pair *array);
+long int	find_min(int total, t_pair *array);
+void	move_stack(int total, t_pair *array, t_pair *swap, int n_e);
 
 #endif

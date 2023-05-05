@@ -24,10 +24,11 @@ FILES 	= \
 			srcs/sort_four_elements.c \
 			srcs/sort_five_elements.c \
 			srcs/main.c
-OBJS  	= $(FILES:.c=.o)
-CC 		= gcc
-CC_ARGS = -Wextra -Wall -Werror -g3
-LIBS	= libs
+
+OBJS  		= $(FILES:.c=.o)
+CC 				= gcc
+CC_ARGS 	= -Wextra -Wall -Werror -g3
+LIBS			= libs
 
 all: $(NAME)
 
